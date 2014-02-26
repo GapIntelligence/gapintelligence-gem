@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'gap_intelligence/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "gapintelligence"
+  spec.name          = "gap_intelligence"
   spec.version       = GapIntelligence::VERSION
   spec.authors       = ["Cesar Camacho", "Josh Manuel", "Dave Patel"]
   spec.email         = ["ccamacho@gapintelligence.com"]
