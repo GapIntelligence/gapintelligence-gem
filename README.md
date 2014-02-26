@@ -1,5 +1,5 @@
-gapintelligence
-=========
+gap_intelligence
+=======
 
 A Ruby interface to the gap intelligence API.
 
@@ -13,7 +13,7 @@ gap intelligence provides the world's most powerful companies with tactical and 
 
 Add this line to your application's Gemfile:
 
-    gem 'gapintelligence'
+    gem 'gap_intelligence'
 
 And then execute:
 
@@ -21,7 +21,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install gapintelligence
+    $ gem install gap_intelligence
 
 ## Usage
 
