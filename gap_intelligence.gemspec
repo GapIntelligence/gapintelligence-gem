@@ -6,7 +6,15 @@ require 'gap_intelligence/version'
 Gem::Specification.new do |spec|
   spec.name          = "gap_intelligence"
   spec.version       = GapIntelligence::VERSION
-  spec.authors       = ["Cesar Camacho"]
+  spec.authors       = ['Cesar Camacho',
+                        'Eugene Correia',
+                        'Timur Gabdrakipov',
+                        'Caitlin Goldman',
+                        'Eric Gomez',
+                        'Shavkat Samatov',
+                        'Pavel Skripin',
+                        'Ethan Soutar-Rau']
+
   spec.email         = ["ccamacho@gapintelligence.com"]
   spec.summary       = %q{A Ruby interface to the gap intelligence API.}
   spec.description   = %q{A Ruby interface to the gap intelligence API.}
