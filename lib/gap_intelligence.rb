@@ -1,5 +1,4 @@
 require "gap_intelligence/version"
 
-module GapIntelligence
-
-end
+# Client
+require 'gap_intelligence/client'
