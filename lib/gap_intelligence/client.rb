@@ -1,39 +1,36 @@
 module GapIntelligence
   class Client
-    attr_reader :connection, :client_id, :client_secret
+    attr_reader :connection, :gapi_client_id, :gapi_client_secret
 
     def initialize
-      @connection = Faraday.new(:url => 'http://api.gapintelligence.com') do |conn|
-        conn.headers['Content-Type'] = 'application/json'
-        conn.response :json, :content_type => /\bjson$/
-        conn.adapter Faraday.default_adapter
+      @connection = Faraday.new(url: 'http://api.gapintelligence.com') do |config|
+        config.request :json
+        config.response :json
+        config.adapter Faraday.default_adapter
       end
     end
 
-    def client_id=(id)
-      @client_id = id
-    end
+    attr_writer :gapi_client_id
 
-    def client_secret=(secret)
-      @client_secret = secret
-    end
+    attr_writer :gapi_client_secret
 
     def pricings
       request :pricings
     end
 
-    def request(resource, action=nil)
-      if !authenticated?
-        authenticate
-      end
+    def request(resource, action = nil)
+      authenticate unless authenticated?
 
-      connection.get [api_base_url, resource, action].join('/')
-
+      connection
+        .get(
+          [api_base_url, resource, action]
+          .join('/'))
+        .body
     end
 
     def authenticated?
       connection.headers['Authorization'] &&
-      connection.headers['Authorization'].matches(/Bearer/)
+        connection.headers['Authorization'].matches(/Bearer/)
     end
 
     def authenticate
@@ -41,13 +38,13 @@ module GapIntelligence
     end
 
     def get_token
-      unless client_id && client_secret
-        raise ConfigurationError.new("API client_id or client_secret missing. Please provide these credentials.")
+      unless gapi_client_id && gapi_client_secret
+        raise ConfigurationError.new('gAPI client_id or client_secret missing. Please provide these credentials.')
       end
       response = connection.post(access_endpoint,
-                                 client_id: client_id,
-                                 client_secret: client_secret,
-                                 grant_type: 'client_credentials' )
+                                 client_id: gapi_client_id,
+                                 client_secret: gapi_client_secret,
+                                 grant_type: 'client_credentials')
 
       case response.status
       when 200

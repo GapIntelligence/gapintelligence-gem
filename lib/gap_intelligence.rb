@@ -1,4 +1,4 @@
-require "gap_intelligence/version"
+require 'gap_intelligence/version'
 
 require 'faraday'
 require 'faraday_middleware'

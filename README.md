@@ -13,7 +13,7 @@ gap intelligence provides the world's most powerful companies with tactical and 
 
 Add this line to your application's Gemfile:
 
-    gem 'gap_intelligence'
+    gem 'gap_intelligence', git: 'git@github.com:GapIntelligence/gapintelligence-gem.git'
 
 And then execute:
 
@@ -21,11 +21,19 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install gap_intelligence
+    $ gem install gap_intelligence,  git: 'git@github.com:GapIntelligence/gapintelligence-gem.git'
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+require 'gap_intelligence'
+
+client = GapIntelligence::Client.new
+client.gapi_client_id = "YOUR CLIENT ID HERE"
+client.gapi_client_secret = "YOUR CLIENT SECRET HERE"
+
+client.pricings
+```
 
 ## Contributing
 
