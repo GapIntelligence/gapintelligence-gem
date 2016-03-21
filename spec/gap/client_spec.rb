@@ -44,7 +44,8 @@ module GapIntelligence
         client.gapi_client_secret = 'ASECRET'
 
         stub_request(:post, 'http://api.gapintelligence.com/oauth/token')
-          .to_return(status: 200, body: '{"access_token": "ATOKEN"}', headers: { 'content-type' => 'text/json' })
+          .with(:body => '{"client_id":"CLIENTID","client_secret":"ASECRET","grant_type":"client_credentials"}')
+          .to_return(status: 200, body: '{"access_token": "ATOKEN"}')
 
         expect(client.authenticate).to eq 'Bearer ATOKEN'
       end
@@ -64,11 +65,11 @@ module GapIntelligence
         client.gapi_client_secret = 'ASECRET'
 
         auth_stub = stub_request(:post, 'http://api.gapintelligence.com/oauth/token')
-                    .to_return(status: 200, body: '{"access_token": "ATOKEN"}', headers: { 'content-type' => 'text/json' })
+          .to_return(status: 200, body: '{"access_token": "ATOKEN"}')
 
         pricings_stub = stub_request(:get, 'http://api.gapintelligence.com/api/v1/pricings/')
-                        .with(headers: { 'Accept' => '*/*', 'Accept-Encoding' => 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Authorization' => 'Bearer ATOKEN', 'User-Agent' => 'Faraday v0.9.2' })
-                        .to_return(status: 200)
+          .with(headers: { 'Authorization' => 'Bearer ATOKEN'})
+          .to_return(status: 200)
 
         client.pricings
 
