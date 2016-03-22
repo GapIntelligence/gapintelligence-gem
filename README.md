@@ -19,9 +19,11 @@ And then execute:
 
     $ bundle
 
-Or install it yourself as:
+Or install it yourself by:
 
-    $ gem install gap_intelligence,  git: 'git@github.com:GapIntelligence/gapintelligence-gem.git'
+    $ git clone git@github.com:GapIntelligence/gapintelligence-gem.git
+    $ bundle
+    $ bundle exec rake install
 
 ## Usage
 
