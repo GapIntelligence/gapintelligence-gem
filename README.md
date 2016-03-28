@@ -13,19 +13,29 @@ gap intelligence provides the world's most powerful companies with tactical and 
 
 Add this line to your application's Gemfile:
 
-    gem 'gap_intelligence'
+    gem 'gap_intelligence', git: 'git@github.com:GapIntelligence/gapintelligence-gem.git'
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
+Or install it yourself by:
 
-    $ gem install gap_intelligence
+    $ git clone git@github.com:GapIntelligence/gapintelligence-gem.git
+    $ bundle
+    $ bundle exec rake install
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+require 'gap_intelligence'
+
+g = GapIntelligence::Client.new
+g.client_id = "YOUR CLIENT ID HERE"
+g.client_secret = "YOUR CLIENT SECRET HERE"
+
+g.pricings
+```
 
 ## Contributing
 
