@@ -17,7 +17,7 @@ module GapIntelligence
         refresh_connection!
       end
 
-      return @connection
+      @connection
     end
 
     def pricings

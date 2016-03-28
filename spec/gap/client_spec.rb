@@ -40,8 +40,7 @@ module GapIntelligence
         client.client_secret = 'ASECRET'
 
         stub_request(:post, 'http://CLIENTID:ASECRET@api.gapintelligence.com/oauth/token')
-          .with(body: { 'grant_type' => 'client_credentials' },
-                headers: { 'Accept' => '*/*', 'Accept-Encoding' => 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Content-Type' => 'application/x-www-form-urlencoded', 'User-Agent' => 'Faraday v0.9.2' })
+          .with(body: { 'grant_type' => 'client_credentials' })
           .to_return(status: 200, body: '{"access_token":"ATOKEN","token_type":"bearer","expires_in":7200,"created_at":1459185716}', headers: { 'Content-Type' => 'application/json' })
 
         expect(client.connection)
@@ -62,12 +61,12 @@ module GapIntelligence
         client.client_secret = 'ASECRET'
 
         auth_stub = stub_request(:post, 'http://CLIENTID:ASECRET@api.gapintelligence.com/oauth/token')
-                    .with(body: { 'grant_type' => 'client_credentials' })
-                    .to_return(status: 200, body: '{"access_token":"ATOKEN","token_type":"bearer","expires_in":7200,"created_at":1459185716}', headers: { 'Content-Type' => 'application/json' })
+                      .with(body: { 'grant_type' => 'client_credentials' })
+                      .to_return(status: 200, body: '{"access_token":"ATOKEN","token_type":"bearer","expires_in":7200,"created_at":1459185716}', headers: { 'Content-Type' => 'application/json' })
 
         pricings_stub = stub_request(:get, 'http://api.gapintelligence.com/api/v1/pricings/')
-                        .with(headers: { 'Authorization' => 'Bearer ATOKEN' })
-                        .to_return(status: 200)
+                          .with(headers: { 'Authorization' => 'Bearer ATOKEN' })
+                          .to_return(status: 200)
 
         client.pricings
 
