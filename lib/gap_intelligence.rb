@@ -1,8 +1,6 @@
 require 'gap_intelligence/version'
 
-require 'faraday'
-require 'faraday_middleware'
-
+require 'oauth2'
 # Client
 require 'gap_intelligence/client'
 

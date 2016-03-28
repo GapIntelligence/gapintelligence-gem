@@ -30,11 +30,11 @@ Or install it yourself by:
 ```
 require 'gap_intelligence'
 
-client = GapIntelligence::Client.new
-client.gapi_client_id = "YOUR CLIENT ID HERE"
-client.gapi_client_secret = "YOUR CLIENT SECRET HERE"
+g = GapIntelligence::Client.new
+g.client_id = "YOUR CLIENT ID HERE"
+g.client_secret = "YOUR CLIENT SECRET HERE"
 
-client.pricings
+g.pricings
 ```
 
 ## Contributing

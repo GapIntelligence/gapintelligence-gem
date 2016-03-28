@@ -1,62 +1,51 @@
 module GapIntelligence
   class Client
-    attr_reader :connection, :gapi_client_id, :gapi_client_secret
+    attr_reader :connection
 
-    def initialize
-      @connection = Faraday.new(url: 'http://api.gapintelligence.com') do |config|
-        config.request :json
-        config.response :json
-        config.adapter Faraday.default_adapter
-      end
+    attr_accessor :client_id,
+                  :client_secret
+
+    def initialize(client_id = nil, client_secret = nil)
+      @client_id = client_id
+      @client_secret = client_secret
     end
 
-    attr_writer :gapi_client_id
+    def connection
+      if !@connection
+        create_connection!
+      elsif @connection.expired?
+        refresh_connection!
+      end
 
-    attr_writer :gapi_client_secret
+      return @connection
+    end
 
     def pricings
       request :pricings
     end
 
-    def request(resource, action = nil)
-      authenticate unless authenticated?
+    def create_connection!
+      raise ConfigurationError.new('Please provide a client_id and client_secret before making requests.') unless client_id && client_secret
 
+      begin
+        @connection = OAuth2::Client.new(client_id, client_secret, site: 'http://api.gapintelligence.com')
+                                    .client_credentials
+                                    .get_token
+      rescue OAuth2::Error
+        raise AuthenticationError.new('Unable to authenticate with the gAPI, please check your client_id and client_secret.')
+      end
+    end
+
+    def refresh_connection!
+      @connection.refresh!
+    end
+
+    def request(resource, action = nil)
       connection
         .get(
           [api_base_url, resource, action]
           .join('/'))
         .body
-    end
-
-    def authenticated?
-      connection.headers['Authorization'] &&
-        connection.headers['Authorization'].matches(/Bearer/)
-    end
-
-    def authenticate
-      connection.headers['Authorization'] = "Bearer #{get_token}"
-    end
-
-    def get_token
-      unless gapi_client_id && gapi_client_secret
-        raise ConfigurationError.new('gAPI client_id or client_secret missing. Please provide these credentials.')
-      end
-      response = connection.post(access_endpoint,
-                                 client_id: gapi_client_id,
-                                 client_secret: gapi_client_secret,
-                                 grant_type: 'client_credentials')
-
-      case response.status
-      when 200
-        token = response.body['access_token']
-        return token
-      else
-        raise AuthenticationError.new("Could not authenticate with gap's servers. Please check your client id and secret.")
-      end
-    end
-
-    def access_endpoint
-      '/oauth/token'
     end
 
     def api_base_url

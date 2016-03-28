@@ -1,11 +1,7 @@
 require 'spec_helper'
 
 module GapIntelligence
-  describe GapIntelligence do
-    it 'has a version number' do
-      expect(GapIntelligence::VERSION).not_to be nil
-    end
-
+  describe GapIntelligence::Client do
     it 'allows clients to be created' do
       expect(GapIntelligence::Client).to respond_to(:new)
     end
@@ -14,25 +10,25 @@ module GapIntelligence
       let (:client) { Client.new }
 
       it 'Accepts a Client ID' do
-        client.gapi_client_id = 'CLIENTID'
+        client.client_id = 'CLIENTID'
       end
 
       it 'Accepts a Client Secret' do
-        client.gapi_client_secret = 'ASECRET'
+        client.client_secret = 'ASECRET'
       end
 
       it 'Will not make API calls without an id and a secret' do
-        expect { client.authenticate }.to raise_error(ConfigurationError)
+        expect { client.connection }.to raise_error(ConfigurationError)
       end
 
       it 'Will not make API calls without an id' do
-        client.gapi_client_secret = 'ASECRET'
-        expect { client.authenticate }.to raise_error(ConfigurationError)
+        client.client_secret = 'ASECRET'
+        expect { client.connection }.to raise_error(ConfigurationError)
       end
 
       it 'Will not make API calls without a secret' do
-        client.gapi_client_id = 'CLIENTID'
-        expect { client.authenticate }.to raise_error(ConfigurationError)
+        client.client_id = 'CLIENTID'
+        expect { client.connection }.to raise_error(ConfigurationError)
       end
     end
 
@@ -40,36 +36,38 @@ module GapIntelligence
       let (:client) { Client.new }
 
       it 'Will authenticate API calls if it provided with valid credentials' do
-        client.gapi_client_id = 'CLIENTID'
-        client.gapi_client_secret = 'ASECRET'
+        client.client_id = 'CLIENTID'
+        client.client_secret = 'ASECRET'
 
-        stub_request(:post, 'http://api.gapintelligence.com/oauth/token')
-          .with(:body => '{"client_id":"CLIENTID","client_secret":"ASECRET","grant_type":"client_credentials"}')
-          .to_return(status: 200, body: '{"access_token": "ATOKEN"}')
+        stub_request(:post, 'http://CLIENTID:ASECRET@api.gapintelligence.com/oauth/token')
+          .with(body: { 'grant_type' => 'client_credentials' },
+                headers: { 'Accept' => '*/*', 'Accept-Encoding' => 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Content-Type' => 'application/x-www-form-urlencoded', 'User-Agent' => 'Faraday v0.9.2' })
+          .to_return(status: 200, body: '{"access_token":"ATOKEN","token_type":"bearer","expires_in":7200,"created_at":1459185716}', headers: { 'Content-Type' => 'application/json' })
 
-        expect(client.authenticate).to eq 'Bearer ATOKEN'
+        expect(client.connection)
       end
 
       it 'Will raise an error if its credentials are rejected' do
-        client.gapi_client_id = 'CLIENTID'
-        client.gapi_client_secret = 'A NOT OK SECRET'
+        client.client_id = 'CLIENTID'
+        client.client_secret = 'A NOT OK SECRET'
 
-        stub_request(:post, 'http://api.gapintelligence.com/oauth/token')
+        stub_request(:post, 'http://CLIENTID:A%20NOT%20OK%20SECRET@api.gapintelligence.com/oauth/token')
           .to_return(status: 400)
 
-        expect { client.authenticate }.to raise_error(AuthenticationError)
+        expect { client.connection }.to raise_error(AuthenticationError)
       end
 
       it 'authenticates automatically when making an API request' do
-        client.gapi_client_id = 'CLIENTID'
-        client.gapi_client_secret = 'ASECRET'
+        client.client_id = 'CLIENTID'
+        client.client_secret = 'ASECRET'
 
-        auth_stub = stub_request(:post, 'http://api.gapintelligence.com/oauth/token')
-          .to_return(status: 200, body: '{"access_token": "ATOKEN"}')
+        auth_stub = stub_request(:post, 'http://CLIENTID:ASECRET@api.gapintelligence.com/oauth/token')
+                    .with(body: { 'grant_type' => 'client_credentials' })
+                    .to_return(status: 200, body: '{"access_token":"ATOKEN","token_type":"bearer","expires_in":7200,"created_at":1459185716}', headers: { 'Content-Type' => 'application/json' })
 
         pricings_stub = stub_request(:get, 'http://api.gapintelligence.com/api/v1/pricings/')
-          .with(headers: { 'Authorization' => 'Bearer ATOKEN'})
-          .to_return(status: 200)
+                        .with(headers: { 'Authorization' => 'Bearer ATOKEN' })
+                        .to_return(status: 200)
 
         client.pricings
 
