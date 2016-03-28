@@ -21,7 +21,7 @@ module GapIntelligence
     end
 
     def pricings
-      request :pricings
+      request(:pricings)
     end
 
     def create_connection!
@@ -45,7 +45,7 @@ module GapIntelligence
         .get(
           [api_base_url, resource, action]
           .join('/'))
-        .body
+        .parsed
     end
 
     def api_base_url
