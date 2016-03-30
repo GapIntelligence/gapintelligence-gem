@@ -25,15 +25,22 @@ Or install it yourself by:
     $ bundle
     $ bundle exec rake install
 
-## Usage
+## Configuration
 
-```
+You can configure default credentials via `GapIntelligence.config`.
+```ruby
 require 'gap_intelligence'
 
-g = GapIntelligence::Client.new
-g.client_id = "YOUR CLIENT ID HERE"
-g.client_secret = "YOUR CLIENT SECRET HERE"
+GapIntelligence.configure do |config|
+  config.client_id = 'YOUR CLIENT ID HERE'
+  config.client_secret = 'YOUR CLIENT SECRET HERE'
+end
+```
 
+You may also pass configuration options directly to client constructor. These options take precedence over `GapIntelligence.config` defaults.
+
+```ruby
+GapIntelligence::Client.new('YOUR CLIENT ID HERE', 'YOUR CLIENT SECRET HERE')
 ```
 
 ## Contributing

@@ -6,8 +6,8 @@ module GapIntelligence
                   :client_secret
 
     def initialize(client_id = nil, client_secret = nil)
-      @client_id = client_id
-      @client_secret = client_secret
+      @client_id = client_id || GapIntelligence.config.client_id
+      @client_secret = client_secret || GapIntelligence.config.client_secret
     end
 
     # Returns the current connection to gAPI. If the connection is old or
@@ -15,11 +15,15 @@ module GapIntelligence
     #
     # @return [OAuth2::AccessToken]
     def connection
-      if !@connection || @connection.expired?
-        create_connection!
-      end
-
+      @connection = create_connection! unless connected?
       @connection
+    end
+
+    # Checks the current connection to gAPI is established and not expired.
+    #
+    # @return [Boolean]
+    def connected?
+      @connection && !@connection.expired?
     end
 
     # Opens a connection to gAPI
@@ -30,9 +34,9 @@ module GapIntelligence
       raise ConfigurationError unless client_id && client_secret
 
       begin
-        @connection = OAuth2::Client.new(client_id, client_secret, site: 'http://api.gapintelligence.com')
-                                    .client_credentials
-                                    .get_token
+        OAuth2::Client.new(client_id, client_secret, site: 'http://api.gapintelligence.com')
+                      .client_credentials
+                      .get_token
       rescue OAuth2::Error
         raise AuthenticationError
       end

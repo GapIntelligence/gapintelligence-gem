@@ -39,5 +39,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'webmock', '~> 1.24.2'
 
-  spec.add_runtime_dependency('oauth2', '~> 1.1.0')
+  spec.add_runtime_dependency 'oauth2', '~> 1.1.0'
 end

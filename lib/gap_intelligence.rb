@@ -2,7 +2,7 @@ require 'gap_intelligence/version'
 
 require 'oauth2'
 
-# Client
+require 'gap_intelligence/configuration'
 require 'gap_intelligence/client'
 
 # Errors
