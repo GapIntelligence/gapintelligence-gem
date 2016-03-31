@@ -1,5 +1,11 @@
+require 'gap_intelligence/client/requestable'
+require 'gap_intelligence/client/downloads'
+
 module GapIntelligence
   class Client
+    include Requestable
+    include Downloads
+
     attr_reader :connection
 
     attr_accessor :client_id,
@@ -36,10 +42,19 @@ module GapIntelligence
       begin
         OAuth2::Client.new(client_id, client_secret, site: 'http://api.gapintelligence.com')
                       .client_credentials
-                      .get_token
+                      .get_token({}, 'auth_scheme' => 'request_body')
       rescue OAuth2::Error
         raise AuthenticationError
       end
+    end
+
+    # Returns headers
+    #
+    # @return [Hash]
+    def headers
+      {
+        'Accept' => 'application/vnd.gapintelligence.com; version=1'
+      }
     end
   end
 end

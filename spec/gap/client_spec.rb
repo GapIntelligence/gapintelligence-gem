@@ -55,24 +55,15 @@ describe Client do
   end
 
   context 'Authenticating a client' do
+    subject(:client) { described_class.new('CLIENTID', 'ASECRET') }
+
     it 'will authenticate API calls if it provided with valid credentials' do
-      client.client_id = 'CLIENTID'
-      client.client_secret = 'ASECRET'
-
-      stub_request(:post, 'http://CLIENTID:ASECRET@api.gapintelligence.com/oauth/token')
-        .with(body: { 'grant_type' => 'client_credentials' })
-        .to_return(status: 200, body: '{"access_token":"ATOKEN","token_type":"bearer","expires_in":7200,"created_at":1459185716}', headers: { 'Content-Type' => 'application/json' })
-
-      expect(client.connection)
-    end
+        stub_api_auth('CLIENTID', 'ASECRET')
+        expect(client.connection).to be_instance_of(OAuth2::AccessToken)
+      end
 
     it 'will raise an error if its credentials are rejected' do
-      client.client_id = 'CLIENTID'
-      client.client_secret = 'A NOT OK SECRET'
-
-      stub_request(:post, 'http://CLIENTID:A%20NOT%20OK%20SECRET@api.gapintelligence.com/oauth/token')
-        .to_return(status: 400)
-
+      stub_api_auth('CLIENTID', 'ASECRET', 400)
       expect { client.connection }.to raise_error(AuthenticationError)
     end
   end

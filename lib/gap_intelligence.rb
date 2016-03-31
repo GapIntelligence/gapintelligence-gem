@@ -3,6 +3,9 @@ require 'gap_intelligence/version'
 require 'oauth2'
 
 require 'gap_intelligence/configuration'
+require 'gap_intelligence/models/record'
+require 'gap_intelligence/models/download'
+require 'gap_intelligence/models/record_set'
 require 'gap_intelligence/client'
 
 # Errors
