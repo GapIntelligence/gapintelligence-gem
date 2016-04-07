@@ -13,6 +13,13 @@ module GapIntelligence
   end
 
   class Configuration
-    attr_accessor :client_id, :client_secret
+    attr_accessor :client_id,
+                  :client_secret,
+                  :host,
+                  :port
+
+    def initialize
+      @host = 'api.gapintelligence.com'
+    end
   end
 end

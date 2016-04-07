@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe GapIntelligence::Downloads do
   before { stub_api_auth('CLIENTID', 'ASECRET') }
-  subject(:client) { GapIntelligence::Client.new('CLIENTID', 'ASECRET') }
+  subject(:client) { GapIntelligence::Client.new(client_id: 'CLIENTID', client_secret: 'ASECRET') }
 
   describe '#downloads' do
     before { stub_api_request(:get, response: { data: build_list(:download, 3) }) }

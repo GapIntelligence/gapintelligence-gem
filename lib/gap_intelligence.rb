@@ -2,6 +2,8 @@ require 'gap_intelligence/version'
 
 require 'oauth2'
 
+require 'uri'
+
 require 'gap_intelligence/configuration'
 require 'gap_intelligence/models/record'
 require 'gap_intelligence/models/download'

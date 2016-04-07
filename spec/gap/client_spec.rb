@@ -21,6 +21,24 @@ describe Client do
       end
     end
 
+    context 'configuring the base URI' do
+      it 'accepts a host' do
+        client.host = 'example.com'
+        expect(client.host).to eq('example.com')
+      end
+
+      it 'accepts a port' do
+        client.host = 3000
+        expect(client.host).to eq(3000)
+      end
+
+      it 'reflects the port and host in the base URI' do
+        client.host = 'localhost'
+        client.port = 3000
+        expect(client.api_base_uri).to eq URI('http://localhost:3000')
+      end
+    end
+
     context 'with shared config' do
       before {
         GapIntelligence.configure do |c|
@@ -30,6 +48,10 @@ describe Client do
       }
 
       after { GapIntelligence.reset_config! }
+
+      it 'defaults to the production gap api' do
+        expect(client.host).to eq('api.gapintelligence.com')
+      end
 
       it 'uses shared config if credentials not provided' do
         expect(client.client_id).to eq('CLIENTID')
@@ -55,7 +77,7 @@ describe Client do
   end
 
   context 'Authenticating a client' do
-    subject(:client) { described_class.new('CLIENTID', 'ASECRET') }
+    subject(:client) { described_class.new(client_id: 'CLIENTID', client_secret: 'ASECRET') }
 
     it 'will authenticate API calls if it provided with valid credentials' do
         stub_api_auth('CLIENTID', 'ASECRET')

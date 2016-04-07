@@ -9,11 +9,15 @@ module GapIntelligence
     attr_reader :connection
 
     attr_accessor :client_id,
-                  :client_secret
+                  :client_secret,
+                  :host,
+                  :port
 
-    def initialize(client_id = nil, client_secret = nil)
-      @client_id = client_id || GapIntelligence.config.client_id
-      @client_secret = client_secret || GapIntelligence.config.client_secret
+    def initialize(config = {})
+      @client_id = config[:client_id]          || GapIntelligence.config.client_id
+      @client_secret = config[:client_secret] || GapIntelligence.config.client_secret
+      @host = config[:host]                   || GapIntelligence.config.host
+      @port = config[:port]                   || GapIntelligence.config.port
     end
 
     # Returns the current connection to gAPI. If the connection is old or
@@ -40,7 +44,7 @@ module GapIntelligence
       raise ConfigurationError unless client_id && client_secret
 
       begin
-        OAuth2::Client.new(client_id, client_secret, site: 'http://api.gapintelligence.com')
+        OAuth2::Client.new(client_id, client_secret, site: api_base_uri)
                       .client_credentials
                       .get_token({}, 'auth_scheme' => 'request_body')
       rescue OAuth2::Error
@@ -55,6 +59,10 @@ module GapIntelligence
       {
         'Accept' => 'application/vnd.gapintelligence.com; version=1'
       }
+    end
+
+    def api_base_uri
+      URI::HTTP.build(host: host, port: port)
     end
   end
 end

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe GapIntelligence::Requestable do
   before { stub_api_auth('CLIENTID', 'ASECRET') }
-  subject(:client) { GapIntelligence::Client.new('CLIENTID', 'ASECRET') }
+  subject(:client) { GapIntelligence::Client.new(client_id: 'CLIENTID', client_secret: 'ASECRET') }
 
   describe '#perform_request' do
     it 'requests path' do
