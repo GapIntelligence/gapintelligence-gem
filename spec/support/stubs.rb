@@ -35,6 +35,10 @@ module StubsHelper
     a_request(:get, build_uri(path))
   end
 
+  def api_post(path)
+    a_request(:post, build_uri(path))
+  end
+
   def build_uri(path)
     path ? URI.join(format('http://%s', API_HOST), path) : /#{API_HOST}/
   end

@@ -9,11 +9,13 @@ module GapIntelligence
     def perform_request(method, path, options = {}, &block)
       record_class = options.delete(:record_class)
       options[:headers] = headers
+      options[:raise_errors] = false
 
       response = connection.request(method, path, options, &block)
-      raise response.error if response.error
-
       hash = response.parsed
+
+      return RequestError.new(hash['error']) if response.error
+
       data = hash['data']
 
       case data

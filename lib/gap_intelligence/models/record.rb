@@ -23,7 +23,10 @@ module GapIntelligence
       end
     end
 
+    attr_reader :id
+
     def initialize(attrs = {})
+      @id = attrs['id']
       @attributes = attrs.fetch('attributes', attrs)
     end
 
