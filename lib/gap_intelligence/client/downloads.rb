@@ -1,14 +1,5 @@
 module GapIntelligence
   module Downloads
-    # Requests and returns downloads
-    #
-    # @param [Hash] options the options to make the request with
-    # @yield [request] The Faraday request
-    # @return [RecordSet<Download>] collection of downloads
-    def downloads(options = {}, &block)
-      perform_request(:get, 'downloads', options.merge(record_class: Download), &block)
-    end
-
     # Creates new download
     #
     # @param [Hash] params the body of the request
@@ -38,6 +29,15 @@ module GapIntelligence
     # @return [Download] the created download
     def create_download(params, options = {}, &block)
       perform_request(:post, 'downloads', options.merge(body: { download: params }, record_class: Download), &block)
+    end
+
+    # Requests and returns downloads
+    #
+    # @param [Hash] options the options to make the request with
+    # @yield [request] The Faraday request
+    # @return [RecordSet<Download>] collection of downloads
+    def downloads(options = {}, &block)
+      perform_request(:get, 'downloads', options.merge(record_class: Download), &block)
     end
   end
 end
