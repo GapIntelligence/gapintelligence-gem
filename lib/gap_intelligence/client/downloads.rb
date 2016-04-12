@@ -27,6 +27,7 @@ module GapIntelligence
     # @param [Hash] options the options to make the request with
     # @yield [request] The Faraday request
     # @return [Download] the created download
+    # @return [RequestError] error messages
     def create_download(params, options = {}, &block)
       perform_request(:post, 'downloads', options.merge(body: { download: params }, record_class: Download), &block)
     end
