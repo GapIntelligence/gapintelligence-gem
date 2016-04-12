@@ -1,10 +1,12 @@
 require 'gap_intelligence/client/requestable'
+require 'gap_intelligence/client/categories'
 require 'gap_intelligence/client/downloads'
 require 'gap_intelligence/client/merchants'
 
 module GapIntelligence
   class Client
     include Requestable
+    include Categories
     include Downloads
     include Merchants
 
