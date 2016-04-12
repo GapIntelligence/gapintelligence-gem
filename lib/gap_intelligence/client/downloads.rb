@@ -4,8 +4,8 @@ module GapIntelligence
 
     # Creates new download
     #
-    # @param [Hash] params the body of the request
-    # @param [Hash] options the options to make the request with
+    # @param params [Hash] parameters that will be the JSON payload of the http request
+    # @param options [Hash] options the options to make the request with
     # @yield [request] The Faraday request
     # @return [Download] the created download
     # @return [RequestError] error messages
@@ -16,12 +16,13 @@ module GapIntelligence
 
     # Requests and returns downloads
     #
-    # @param [Hash] options the options to make the request with
+    # @param params [Hash] parameters of the http request
+    # @param options [Hash] options for the http request
     # @yield [request] The Faraday request
     # @return [RecordSet<Download>] collection of downloads
     # @see http://api.gapintelligence.com/api/doc/v1/downloads/index.html
-    def downloads(options = {}, &block)
-      perform_request(:get, 'downloads', options.merge(record_class: Download), &block)
+    def downloads(params = {},options = {}, &block)
+      perform_request(:get, 'downloads', options.merge(params: params, record_class: Download), &block)
     end
   end
 end

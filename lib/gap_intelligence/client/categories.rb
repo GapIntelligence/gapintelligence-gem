@@ -3,12 +3,13 @@ module GapIntelligence
   module Categories
     # Requests and returns a list of categories
     #
+    # @param params [Hash] parameters of the http request
     # @param options [Hash] the options to make the request with
     # @yield [req] The Faraday request
     # @return [RecordSet<Category>] the list of requested categories
     # @see http://api.gapintelligence.com/api/doc/v1/categories/index.html
-    def categories(options = {}, &block)
-      perform_request(:get, 'categories', options.merge(record_class: Category), &block)
+    def categories(params={}, options = {}, &block)
+      perform_request(:get, 'categories', options.merge(params: params, record_class: Category), &block)
     end
   end
 end

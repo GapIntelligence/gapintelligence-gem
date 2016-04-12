@@ -1,0 +1,15 @@
+module GapIntelligence
+  # @see http://api.gapintelligence.com/api/doc/v1/brands.html
+  module Brands
+    # Requests a list of merchants
+    #
+    # @param params [Hash] parameters of the http request
+    # @param options [Hash] the options to make the request with
+    # @yield [req] The Faraday request
+    # @return [RecordSet<Brand>] the requested merchants
+    # @see http://api.gapintelligence.com/api/doc/v1/brands/index.html
+    def brands(params={'category_name' => ''},options = {}, &block)
+      perform_request(:get, 'brands', options.merge(params: params, record_class: Brand), &block)
+    end
+  end
+end
