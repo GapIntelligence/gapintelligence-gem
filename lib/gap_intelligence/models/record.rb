@@ -1,5 +1,7 @@
 module GapIntelligence
   class Record
+    attr_reader :id,
+                :raw
 
     class << self
       def attributes(*args)
@@ -26,8 +28,9 @@ module GapIntelligence
     attr_reader :id
 
     def initialize(attrs = {})
-      @id = attrs['id']
-      @attributes = attrs.fetch('attributes', attrs)
+      @raw = attrs
+      @id = raw['id']
+      @attributes = raw.fetch('attributes', raw)
     end
 
     private

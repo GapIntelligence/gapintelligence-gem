@@ -33,5 +33,11 @@ describe GapIntelligence::Record do
       expect(record.date).to be_an_instance_of(Date)
       expect(record.time).to be_an_instance_of(Time)
     end
+
+    it 'assigns an id' do
+      expect(
+        Record.new('id' => 105).id
+      ).to eq 105
+    end
   end
 end
