@@ -26,5 +26,10 @@ module GapIntelligence
         record_class.nil? ? data : record_class.new(data)
       end
     end
+
+    private
+    def default_option(opts, key, value)
+      opts[key] = opts.fetch(key, value)
+    end
   end
 end

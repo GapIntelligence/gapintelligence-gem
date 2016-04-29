@@ -9,7 +9,8 @@ module GapIntelligence
     # @return [RecordSet<Merchant>] the requested merchants
     # @see http://api.gapintelligence.com/api/doc/v1/merchants/index.html
     def merchants(params = {}, options = {}, &block)
-      perform_request(:get, 'merchants', options.merge(params: params, record_class: Merchant), &block)
+      default_option(options, :record_class, Merchant)
+      perform_request(:get, 'merchants', options.merge(params: params), &block)
     end
   end
 end

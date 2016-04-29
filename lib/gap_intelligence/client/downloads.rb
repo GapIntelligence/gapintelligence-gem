@@ -11,7 +11,8 @@ module GapIntelligence
     # @return [RequestError] error messages
     # @see http://api.gapintelligence.com/api/doc/v1/downloads/create.html
     def create_download(params, options = {}, &block)
-      perform_request(:post, 'downloads', options.merge(body: { download: params }, record_class: Download), &block)
+      default_option(options, :record_class, Download)
+      perform_request(:post, 'downloads', options.merge(body: { download: params }), &block)
     end
 
     # Requests and returns downloads
@@ -21,8 +22,9 @@ module GapIntelligence
     # @yield [request] The Faraday request
     # @return [RecordSet<Download>] collection of downloads
     # @see http://api.gapintelligence.com/api/doc/v1/downloads/index.html
-    def downloads(params = {},options = {}, &block)
-      perform_request(:get, 'downloads', options.merge(params: params, record_class: Download), &block)
+    def downloads(params = {}, options = {}, &block)
+      default_option(options, :record_class, Download)
+      perform_request(:get, 'downloads', options.merge(params: params), &block)
     end
   end
 end

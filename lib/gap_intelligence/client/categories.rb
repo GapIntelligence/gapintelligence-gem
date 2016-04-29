@@ -8,8 +8,9 @@ module GapIntelligence
     # @yield [req] The Faraday request
     # @return [RecordSet<Category>] the list of requested categories
     # @see http://api.gapintelligence.com/api/doc/v1/categories/index.html
-    def categories(params={}, options = {}, &block)
-      perform_request(:get, 'categories', options.merge(params: params, record_class: Category), &block)
+    def categories(params = {}, options = {}, &block)
+      default_option(options, :record_class, Category)
+      perform_request(:get, 'categories', options.merge(params: params), &block)
     end
   end
 end
