@@ -1,14 +1,16 @@
 module StubsHelper
   API_HOST = 'api.gapintelligence.com'
 
-  def stub_api_auth(client_id, client_secret, status = 200)
+  def stub_api_auth(client_id, client_secret, status = 200, options={})
+    params = {
+      client_id: client_id,
+      client_secret: client_secret,
+      grant_type: 'client_credentials'
+    }
+    params[:scope] = options[:scope] if options[:scope]
     stub_api_request(:post,
       url: 'oauth/token',
-      params: {
-        client_id: client_id,
-        client_secret: client_secret,
-        grant_type: 'client_credentials'
-      },
+      params: params,
       response: {
         access_token: 'ATOKEN',
         token_type: 'bearer',

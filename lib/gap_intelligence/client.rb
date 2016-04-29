@@ -17,13 +17,15 @@ module GapIntelligence
     attr_accessor :client_id,
                   :client_secret,
                   :host,
-                  :port
+                  :port,
+                  :scope
 
     def initialize(config = {})
-      @client_id = config[:client_id]          || GapIntelligence.config.client_id
+      @client_id = config[:client_id]         || GapIntelligence.config.client_id
       @client_secret = config[:client_secret] || GapIntelligence.config.client_secret
       @host = config[:host]                   || GapIntelligence.config.host
       @port = config[:port]                   || GapIntelligence.config.port
+      @scope = config[:scope]
     end
 
     # Returns the current connection to gAPI. If the connection is old or
@@ -50,9 +52,11 @@ module GapIntelligence
       raise ConfigurationError unless client_id && client_secret
 
       begin
+        client_params = {}
+        client_params[:scope] = @scope if @scope
         OAuth2::Client.new(client_id, client_secret, site: api_base_uri)
                       .client_credentials
-                      .get_token({}, 'auth_scheme' => 'request_body')
+                      .get_token(client_params, 'auth_scheme' => 'request_body')
       rescue OAuth2::Error
         raise AuthenticationError
       end

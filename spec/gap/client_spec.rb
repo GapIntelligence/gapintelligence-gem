@@ -80,9 +80,15 @@ describe Client do
     subject(:client) { described_class.new(client_id: 'CLIENTID', client_secret: 'ASECRET') }
 
     it 'will authenticate API calls if it provided with valid credentials' do
-        stub_api_auth('CLIENTID', 'ASECRET')
-        expect(client.connection).to be_instance_of(OAuth2::AccessToken)
-      end
+      stub_api_auth('CLIENTID', 'ASECRET')
+      expect(client.connection).to be_instance_of(OAuth2::AccessToken)
+    end
+
+    it 'will authenticate API calls if it provided with valid credentials and scope' do
+      stub_api_auth('CLIENTID', 'ASECRET', 200, scope: 'ASCOPE')
+      client = described_class.new(client_id: 'CLIENTID', client_secret: 'ASECRET', scope: 'ASCOPE')
+      expect(client.connection).to be_instance_of(OAuth2::AccessToken)
+    end
 
     it 'will raise an error if its credentials are rejected' do
       stub_api_auth('CLIENTID', 'ASECRET', 400)

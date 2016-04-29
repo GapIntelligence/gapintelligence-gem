@@ -1,6 +1,7 @@
 module GapIntelligence
   def self.configure(&block)
     yield config
+    config
   end
 
   def self.config
