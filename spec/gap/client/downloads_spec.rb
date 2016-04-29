@@ -5,14 +5,15 @@ describe GapIntelligence::Downloads do
   subject(:client) { GapIntelligence::Client.new(client_id: 'CLIENTID', client_secret: 'ASECRET') }
 
   describe '#create_downloads' do
-    let(:params){ { owner_id: '1', filter: { categories: ['Category 1'], countries: ['Country 1'] } } }
+    let(:owner_id) { 1 }
+    let(:params){ { filter: { categories: ['Category 1'], countries: ['Country 1'] } } }
     before { stub_api_request(:post, url: 'downloads', response: { data: build(:download) }) }
-    subject(:result) { client.create_download(params) }
+    subject(:result) { client.create_download(owner_id, params) }
 
     it 'requests the endpoint' do
-      client.create_download(params)
+      client.create_download(owner_id, params)
 
-      expect(api_post('/downloads').with(body: { download: params })).to have_been_made
+      expect(api_post('/downloads').with(body: { owner_id: owner_id.to_s, download: params })).to have_been_made
     end
 
     it 'creates a new download' do
@@ -28,12 +29,13 @@ describe GapIntelligence::Downloads do
   end
 
   describe '#downloads' do
+    let(:owner_id) { 1 }
     before { stub_api_request(:get, response: { data: build_list(:download, 3) }) }
-    subject(:record_set) { client.downloads }
+    subject(:record_set) { client.downloads(owner_id) }
 
     it 'requests the endpoint' do
-      client.downloads
-      expect(api_get('/downloads')).to have_been_made
+      client.downloads(owner_id)
+      expect(api_get(format('/downloads?owner_id=%i', owner_id))).to have_been_made
     end
 
     it 'returns record set' do
