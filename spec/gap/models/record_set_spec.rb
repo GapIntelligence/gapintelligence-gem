@@ -19,4 +19,8 @@ describe GapIntelligence::RecordSet do
     expect(record_set[1]).to eq(2)
   end
 
+  it 'responds to to_ary' do
+    expect(record_set).to respond_to(:to_ary)
+  end
+
 end

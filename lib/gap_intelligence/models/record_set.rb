@@ -7,7 +7,7 @@ module GapIntelligence
 
     attr_accessor :meta
 
-    def_delegators :@records, :each, :[]
+    def_delegators :@records, :each, :[], :to_ary
 
     def initialize(records=nil, options={})
       @records = records || []
