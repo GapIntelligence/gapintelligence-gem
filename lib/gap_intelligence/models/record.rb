@@ -1,8 +1,5 @@
 module GapIntelligence
   class Record
-    attr_reader :id,
-                :raw
-
     class << self
       def attributes(*args)
         options = args.last.is_a?(::Hash) ? args.pop : {}
@@ -25,7 +22,8 @@ module GapIntelligence
       end
     end
 
-    attr_reader :id
+    attr_reader :id,
+                :raw
 
     def initialize(attrs = {})
       @raw = attrs

@@ -1,9 +1,11 @@
 module GapIntelligence
   class Download < Record
     attributes :start_at, :end_at, class: Date
+    attribute :created_at, class: Time
 
     attributes :category_names
     attribute :country_names, class: Array
+    attribute :report_types, class: Array
 
     attributes :merchant_names, :brand_names, :channels, class: Array
     attributes :pricing_date
