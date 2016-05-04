@@ -40,7 +40,7 @@ end
 You may also pass configuration options directly to client constructor. These options take precedence over `GapIntelligence.config` defaults.
 
 ```ruby
-GapIntelligence::Client.new('YOUR CLIENT ID HERE', 'YOUR CLIENT SECRET HERE')
+GapIntelligence::Client.new(client_id: 'YOUR CLIENT ID HERE', client_secret: 'YOUR CLIENT SECRET HERE')
 ```
 
 ## Contributing
