@@ -27,5 +27,15 @@ FactoryGirl.define do
         }
       }
     end
+
+    trait :pricings do
+      initialize_with {
+        {
+          'id' => '',
+          'type' => 'pricing_headers',
+          'attributes' => { 'name' => 'A Header' }
+        }
+      }
+    end
   end
 end
