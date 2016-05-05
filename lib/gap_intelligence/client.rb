@@ -2,6 +2,7 @@ require 'gap_intelligence/client/requestable'
 require 'gap_intelligence/client/brands'
 require 'gap_intelligence/client/categories'
 require 'gap_intelligence/client/downloads'
+require 'gap_intelligence/client/headers'
 require 'gap_intelligence/client/merchants'
 
 module GapIntelligence
@@ -11,6 +12,7 @@ module GapIntelligence
     include Categories
     include Downloads
     include Merchants
+    include Headers
 
     attr_reader :connection
 
