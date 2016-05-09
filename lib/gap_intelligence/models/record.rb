@@ -33,7 +33,7 @@ module GapIntelligence
 
     private
     def convert_value_to(klass, value)
-      return value if klass.nil? || value.is_a?(klass)
+      return value if klass.nil? || value.nil? || value.is_a?(klass)
 
       case klass.to_s
       when 'Date', 'Time'
