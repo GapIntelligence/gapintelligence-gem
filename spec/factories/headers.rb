@@ -1,19 +1,14 @@
 FactoryGirl.define do
   factory :header, class: Hash do
-    initialize_with {
-      {
-        'id' => '',
-        'type' => 'advertisement_headers',
-        'attributes' => { 'name' => 'A Header' }
-      }
-    }
-
     trait :ads do
       initialize_with {
         {
           'id' => '',
           'type' => 'advertisement_headers',
-          'attributes' => { 'name' => 'A Header' }
+          'attributes' => { 'name' => 'A Header',
+                            'unit' => nil,
+                            'core_header' => nil,
+                            'position' => nil }
         }
       }
     end
@@ -23,7 +18,10 @@ FactoryGirl.define do
         {
           'id' => '',
           'type' => 'promotion_headers',
-          'attributes' => { 'name' => 'A Header' }
+          'attributes' => { 'name' => 'A Header',
+                            'unit' => nil,
+                            'core_header' => nil,
+                            'position' => nil }
         }
       }
     end
@@ -33,7 +31,23 @@ FactoryGirl.define do
         {
           'id' => '',
           'type' => 'pricing_headers',
-          'attributes' => { 'name' => 'A Header' }
+          'attributes' => { 'name' => 'A Header',
+                            'unit' => nil,
+                            'core_header' => nil,
+                            'position' => nil }
+        }
+      }
+    end
+
+    trait :specifications do
+      initialize_with {
+        {
+          'id' => '',
+          'type' => 'specification_headers',
+          'attributes' => { 'name' => 'A Header',
+                            'unit' => 'lbs',
+                            'core_header' => false,
+                            'position' => 0 }
         }
       }
     end
