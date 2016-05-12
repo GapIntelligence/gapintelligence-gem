@@ -4,7 +4,8 @@ FactoryGirl.define do
       {
         "id" => 1,
         "type" => "categories",
-        "attributes" => { 'name' => 'A Category'}
+        "attributes" => { 'name' => 'A Category',
+                          'full_name' => 'A Category Full Name' }
       }
     }
   end

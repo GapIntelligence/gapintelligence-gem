@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe GapIntelligence::Record do
-  it 'allows records to be created' do
+shared_examples_for 'Record' do
+  it 'responds to .new' do
     expect(described_class).to respond_to(:new)
   end
 
@@ -35,9 +35,7 @@ describe GapIntelligence::Record do
     end
 
     it 'assigns an id' do
-      expect(
-        Record.new('id' => 105).id
-      ).to eq 105
+      expect(described_class.new('id' => 105).id).to eq 105
     end
   end
 end
