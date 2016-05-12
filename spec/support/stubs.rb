@@ -1,7 +1,7 @@
 module StubsHelper
   API_HOST = 'api.gapintelligence.com'
 
-  def stub_api_auth(client_id, client_secret, status = 200, options={})
+  def stub_api_auth(client_id, client_secret, status = 200, options = {})
     params = {
       client_id: client_id,
       client_secret: client_secret,

@@ -20,7 +20,7 @@ module GapIntelligence
 
       case data
       when Array
-        objects = record_class.nil? ? data : data.collect{|object| record_class.new(object) }
+        objects = record_class.nil? ? data : data.collect{ |object| record_class.new(object) }
         RecordSet.new(objects, meta: hash.fetch('meta', {}))
       when Hash
         record_class.nil? ? data : record_class.new(data)

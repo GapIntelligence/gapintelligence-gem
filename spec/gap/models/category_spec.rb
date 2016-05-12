@@ -14,5 +14,4 @@ describe GapIntelligence::Category do
       expect(category).to respond_to(:full_name)
     end
   end
-
 end

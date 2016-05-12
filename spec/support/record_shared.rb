@@ -5,6 +5,18 @@ shared_examples_for 'Record' do
     expect(described_class).to respond_to(:new)
   end
 
+  describe 'attr_reader' do
+    subject(:record) { described_class.new }
+
+    it 'has id' do
+      expect(record).to respond_to(:id)
+    end
+
+    it 'has raw' do
+      expect(record).to respond_to(:raw)
+    end
+  end
+
   describe '.attributes' do
     let(:hash) { {
       'name' => 'Name 1',

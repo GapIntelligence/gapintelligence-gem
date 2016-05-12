@@ -9,7 +9,7 @@ module GapIntelligence
 
     def_delegators :@records, :each, :[], :to_ary
 
-    def initialize(records=nil, options={})
+    def initialize(records = nil, options = {})
       @records = records || []
       @meta = options[:meta]
     end

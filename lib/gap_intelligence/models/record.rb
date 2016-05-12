@@ -9,7 +9,7 @@ module GapIntelligence
       end
       alias :attribute :attributes
 
-      def define_attribute(attr, options={})
+      def define_attribute(attr, options = {})
         klass = options[:class]
 
         define_method(attr) do
