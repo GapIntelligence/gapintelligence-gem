@@ -2,6 +2,7 @@ require 'gap_intelligence/client/requestable'
 require 'gap_intelligence/client/brands'
 require 'gap_intelligence/client/categories'
 require 'gap_intelligence/client/downloads'
+require 'gap_intelligence/client/files'
 require 'gap_intelligence/client/headers'
 require 'gap_intelligence/client/merchants'
 require 'gap_intelligence/client/merchant_pricing_trends'
@@ -15,6 +16,7 @@ module GapIntelligence
     include Merchants
     include MerchantPricingTrends
     include Headers
+    include Files
 
     attr_reader :connection
 
