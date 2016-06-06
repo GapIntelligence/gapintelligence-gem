@@ -13,5 +13,23 @@ module GapIntelligence
       @records = records || []
       @meta = options[:meta]
     end
+
+    def total_pages
+      pagination['total_pages']
+    end
+
+    def current_page
+      pagination['current_page']
+    end
+
+    def limit_value
+      pagination['total_count'] / total_pages if pagination['total_count'] && total_pages.to_i > 0
+    end
+
+    private
+
+    def pagination
+      @pagination ||= meta ? meta.fetch('pagination', {}) : {}
+    end
   end
 end
