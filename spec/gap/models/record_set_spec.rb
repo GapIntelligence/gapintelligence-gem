@@ -29,8 +29,8 @@ describe GapIntelligence::RecordSet do
         'current_page' => 1,
         'next_page' => 2,
         'prev_page' => nil,
-        'total_pages' => 20,
-        'total_count' => 40
+        'total_pages' => 4,
+        'total_count' => 99
       } }
       subject(:record_set) { described_class.new [], meta: { 'pagination' => pagination } }
 
@@ -43,7 +43,7 @@ describe GapIntelligence::RecordSet do
       end
 
       it 'responds to limit_value' do
-        expect(record_set.limit_value).to eq(pagination['total_count'] / pagination['total_pages'])
+        expect(record_set.limit_value).to eq(25)
       end
     end
 

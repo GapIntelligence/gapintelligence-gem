@@ -23,7 +23,7 @@ module GapIntelligence
     end
 
     def limit_value
-      pagination['total_count'] / total_pages if pagination['total_count'] && total_pages.to_i > 0
+      (pagination['total_count'] / total_pages.to_f).ceil if pagination['total_count'] && total_pages.to_i > 0
     end
 
     private
