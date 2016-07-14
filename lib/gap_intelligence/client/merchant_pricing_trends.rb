@@ -9,9 +9,9 @@ module GapIntelligence
     # @return [MerchantPricingTrend] the requested data
     # @return [RequestError] error messages
     # @see http://api.gapintelligence.com/api/doc/v1/merchant_pricing_trends/index.html
-    def merchant_pricing_trends(params = {}, options = {}, &block)
+    def merchant_pricing_trends(owner_id, params = {}, options = {}, &block)
       default_option(options, :record_class, MerchantPricingTrend)
-      perform_request(:get, 'merchant_pricing_trends', options.merge(params: params), &block)
+      perform_request(:get, 'merchant_pricing_trends', options.merge(params: params.merge(owner_id: owner_id)), &block)
     end
   end
 end
