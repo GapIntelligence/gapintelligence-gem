@@ -27,4 +27,27 @@ describe GapIntelligence::MerchantPricingTrendDownloads do
       expect(result.message).to eq('error message')
     end
   end
+
+  describe '#merchant_pricing_trend_downloads' do
+    let(:owner_id) { 1 }
+    before { stub_api_request(:get, response: { data: build_list(:merchant_pricing_trend_download, 3) }) }
+    subject(:record_set) { client.merchant_pricing_trend_downloads(owner_id) }
+
+    it 'requests the endpoint' do
+      client.merchant_pricing_trend_downloads(owner_id)
+      expect(api_get(format('/merchant_pricing_trend_downloads?owner_id=%i', owner_id))).to have_been_made
+    end
+
+    it 'returns record set' do
+      expect(record_set).to be_instance_of(GapIntelligence::RecordSet)
+    end
+
+    it 'returns set of specified type' do
+      expect(record_set).to all be_an(GapIntelligence::MerchantPricingTrendDownload)
+    end
+
+    it 'contains proper count of elements' do
+      expect(record_set.count).to eq(3)
+    end
+  end
 end
