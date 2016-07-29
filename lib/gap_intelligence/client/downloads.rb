@@ -28,5 +28,18 @@ module GapIntelligence
       default_option(options, :record_class, Download)
       perform_request(:get, 'downloads', options.merge(params: params.merge(owner_id: owner_id)), &block)
     end
+
+    # Deletes download
+    #
+    # @param owner_id [String,Integer] owner id of the download
+    # @param download_ids [Integer] id of the download
+    # @param options [Hash] options the options to make the request with
+    # @yield [request] The Faraday request
+    # @return [Hash] Response
+    # @return [RequestError] error messages
+    # @see http://api.gapintelligence.com/api/doc/v1/downloads/destroy.html
+    def delete_download(owner_id, download_ids, options = {}, &block)
+      perform_request(:delete, 'downloads', options.merge(body: { owner_id: owner_id, ids: download_ids }), &block)
+    end
   end
 end

@@ -50,4 +50,28 @@ describe GapIntelligence::Downloads do
       expect(record_set.count).to eq(3)
     end
   end
+
+  describe '#delete_download' do
+    let(:owner_id) { 1 }
+    let(:download_ids) { ['1'] }
+    before { stub_api_request(:delete, url: 'downloads', response: { status: 'OK' }) }
+    subject(:result) { client.delete_download(owner_id, download_ids) }
+
+    it 'requests the endpoint' do
+      client.delete_download(owner_id, download_ids)
+
+      expect(api_delete('/downloads').with(body: { owner_id: owner_id.to_s, ids: download_ids })).to have_been_made
+    end
+
+    it 'returns nothing.' do
+      expect(result).to eq(nil)
+    end
+
+    it 'returns error messages if there is no such download.' do
+      stub_api_request(:delete, url: 'downloads', response: { error: 'error message' }, status: 404)
+
+      expect(result).to be_instance_of RequestError
+      expect(result.message).to eq('error message')
+    end
+  end
 end
