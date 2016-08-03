@@ -34,8 +34,8 @@ module GapIntelligence
       opts[key] = opts.fetch(key, value)
     end
 
-    def build_resource_path(endpoint_path, object_id)
-      URI.parse([endpoint_path, object_id].join('/')).path
+    def build_resource_path(*path)
+      URI.parse(path.join('/')).path
     end
   end
 end
