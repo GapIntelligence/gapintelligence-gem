@@ -3,11 +3,12 @@ module GapIntelligence
     attributes :start_at, :end_at, class: Date
     attribute :created_at, class: Time
 
-    attributes :category_names
-    attribute :country_names, class: Array
-    attribute :report_types, class: Array
+    attributes :categories, class: Array
+    attribute :category_names
+    attributes :countries, :country_names
+    attributes :report_types, :report_type_names, class: Array
 
-    attributes :merchant_names, :brand_names, :channels, class: Array
+    attributes :brands, :channels, :merchants, class: Array
     attributes :pricing_date
 
     attributes :advertisements_headers, :pricings_headers, :promotions_headers, class: Array
