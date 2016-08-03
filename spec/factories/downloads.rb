@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :download, class: Hash do
-    owner 'Outsider'
+    owner_type 'Outsider'
     owner_id 1
     start_at '2015-11-24'
     end_at '2016-02-23'
