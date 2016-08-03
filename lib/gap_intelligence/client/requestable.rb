@@ -1,3 +1,5 @@
+require 'uri'
+
 module GapIntelligence
   module Requestable
     # Makes a request to a specified endpoint
@@ -30,6 +32,10 @@ module GapIntelligence
     private
     def default_option(opts, key, value)
       opts[key] = opts.fetch(key, value)
+    end
+
+    def build_resource_path(endpoint_path, object_id)
+      URI.parse([endpoint_path, object_id].join('/')).path
     end
   end
 end
