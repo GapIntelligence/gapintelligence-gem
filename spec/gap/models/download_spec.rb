@@ -18,8 +18,16 @@ describe GapIntelligence::Download do
       expect(download.created_at).to be_an_instance_of(Time)
     end
 
+    it 'has categories as Array' do
+      expect(download.categories).to be_an_instance_of(Array)
+    end
+
     it 'has category_names' do
       expect(download).to respond_to(:category_names)
+    end
+
+    it 'has countries as Array' do
+      expect(download.countries).to be_an_instance_of(Array)
     end
 
     it 'has country_names as Array' do
@@ -30,16 +38,20 @@ describe GapIntelligence::Download do
       expect(download.report_types).to be_an_instance_of(Array)
     end
 
-    it 'has merchant_names as Array' do
-      expect(download.merchant_names).to be_an_instance_of(Array)
+    it 'has report_type_names as Array' do
+      expect(download.report_type_names).to be_an_instance_of(Array)
     end
 
-    it 'has brand_names as Array' do
-      expect(download.brand_names).to be_an_instance_of(Array)
+    it 'has brands as Array' do
+      expect(download.brands).to be_an_instance_of(Array)
     end
 
     it 'has channels as Array' do
       expect(download.channels).to be_an_instance_of(Array)
+    end
+
+    it 'has merchants as Array' do
+      expect(download.merchants).to be_an_instance_of(Array)
     end
 
     it 'has pricing_date' do
