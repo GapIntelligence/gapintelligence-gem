@@ -23,7 +23,7 @@ describe GapIntelligence::Download do
     end
 
     it 'has category_names' do
-      expect(download).to respond_to(:category_names)
+      expect(download.category_names).to be_an_instance_of(Array)
     end
 
     it 'has countries as Array' do

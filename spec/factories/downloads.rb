@@ -6,7 +6,7 @@ FactoryGirl.define do
     end_at '2016-02-23'
     created_at Time.now.to_s
     categories ['1']
-    category_names 'TVs'
+    category_names ['TVs']
     countries ['US']
     country_names ['United States']
     report_types ['pricings']

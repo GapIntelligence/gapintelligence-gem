@@ -3,8 +3,7 @@ module GapIntelligence
     attributes :start_at, :end_at, class: Date
     attribute :created_at, class: Time
 
-    attributes :categories, class: Array
-    attribute :category_names
+    attributes :categories, :category_names, class: Array
     attributes :countries, :country_names
     attributes :report_types, :report_type_names, class: Array
 
