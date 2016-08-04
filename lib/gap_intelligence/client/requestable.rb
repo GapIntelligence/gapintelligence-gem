@@ -1,5 +1,3 @@
-require 'uri'
-
 module GapIntelligence
   module Requestable
     # Makes a request to a specified endpoint
