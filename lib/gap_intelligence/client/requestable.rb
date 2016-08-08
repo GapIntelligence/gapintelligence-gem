@@ -31,5 +31,9 @@ module GapIntelligence
     def default_option(opts, key, value)
       opts[key] = opts.fetch(key, value)
     end
+
+    def build_resource_path(*path)
+      URI.parse(path.join('/')).path
+    end
   end
 end

@@ -51,6 +51,22 @@ describe GapIntelligence::Downloads do
     end
   end
 
+  describe '#download' do
+    let(:owner_id) { 1 }
+    let(:download) { build(:download) }
+    before { stub_api_request(:get, response: { data: download }) }
+    subject(:record) { client.download(owner_id, download['id']) }
+
+    it 'requests the endpoint' do
+      client.download(owner_id, download['id'])
+      expect(api_get(format('/downloads/%i?owner_id=%i', download['id'], owner_id))).to have_been_made
+    end
+
+    it 'returns record' do
+      expect(record).to be_instance_of(GapIntelligence::Download)
+    end
+  end
+
   describe '#delete_download' do
     let(:owner_id) { 1 }
     let(:download_ids) { ['1'] }

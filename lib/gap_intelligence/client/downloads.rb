@@ -29,6 +29,19 @@ module GapIntelligence
       perform_request(:get, 'downloads', options.merge(params: params.merge(owner_id: owner_id)), &block)
     end
 
+    # Requests and returns a download
+    #
+    # @param owner_id [String,Integer] owner id of the download
+    # @param download_id [String,Integer] download id
+    # @param options [Hash] options for the http request
+    # @yield [request] The Faraday request
+    # @return [Download] the requested download
+    # @see http://api.gapintelligence.com/api/doc/v1/downloads/show.html
+    def download(owner_id, download_id, options = {}, &block)
+      default_option(options, :record_class, Download)
+      perform_request(:get, build_resource_path('downloads', download_id), options.merge(params: { owner_id: owner_id }), &block)
+    end
+
     # Deletes download
     #
     # @param owner_id [String,Integer] owner id of the download
