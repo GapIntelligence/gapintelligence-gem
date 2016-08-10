@@ -50,4 +50,28 @@ describe GapIntelligence::MerchantPricingTrendDownloads do
       expect(record_set.count).to eq(3)
     end
   end
+
+  describe '#delete_merchant_pricing_trend_download' do
+    let(:owner_id) { 1 }
+    let(:external_record_id) { 7 }
+    before { stub_api_request(:delete, url: 'merchant_pricing_trend_downloads', response: { status: 'OK' }) }
+    subject(:result) { client.delete_merchant_pricing_trend_download(owner_id, external_record_id) }
+
+    it 'requests the endpoint' do
+      client.delete_merchant_pricing_trend_download(owner_id, external_record_id)
+
+      expect(api_delete('/merchant_pricing_trend_downloads').with(body: { owner_id: owner_id.to_s, external_record_id: external_record_id.to_s })).to have_been_made
+    end
+
+    it 'returns nothing.' do
+      expect(result).to eq(nil)
+    end
+
+    it 'returns error messages if there is no such merchant pricing trend download.' do
+      stub_api_request(:delete, url: 'merchant_pricing_trend_downloads', response: { error: 'error message' }, status: 404)
+
+      expect(result).to be_instance_of RequestError
+      expect(result.message).to eq('error message')
+    end
+  end
 end
