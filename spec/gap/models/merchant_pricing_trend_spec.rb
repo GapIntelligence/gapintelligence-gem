@@ -3,15 +3,23 @@ require 'spec_helper'
 describe GapIntelligence::MerchantPricingTrend do
   include_examples 'Record'
 
-  describe 'attributes' do
-    subject(:merchant_pricing_trend) { described_class.new build(:merchant_pricing_trend) }
+  let!(:merchant_pricing_trend_data) { build(:merchant_pricing_trend) }
+  let!(:response_body) { { data: merchant_pricing_trend_data }.to_json }
+  let!(:merchant_pricing_trend) { described_class.new response_body: response_body }
 
-    it 'has values' do
-      expect(merchant_pricing_trend).to respond_to(:values)
+  describe 'attributes' do
+    it 'has raw' do
+      expect(merchant_pricing_trend).to respond_to(:raw)
     end
 
-    it 'has headers' do
-      expect(merchant_pricing_trend).to respond_to(:headers)
+    it 'returns response_body in raw[:response_body]' do
+      expect(merchant_pricing_trend.raw[:response_body]).to eq response_body
+    end
+  end
+
+  describe 'methods' do
+    it 'returns parsed variants from response body' do
+      expect(merchant_pricing_trend.variants).to eq merchant_pricing_trend_data['variants']
     end
   end
 end

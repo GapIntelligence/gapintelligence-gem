@@ -23,7 +23,7 @@ FactoryGirl.define do
             "Max. Refresh Rate" => "60",
             "Display Resolution" => "1920 x 1080"
           }
-       ],
+        ],
         "headers" => [
           "Merchant",
           "Brand",
@@ -42,6 +42,16 @@ FactoryGirl.define do
           "Size Class",
           "Max. Refresh Rate",
           "Display Resolution"
+        ],
+        "variants" => [
+          {
+            "Merchant" => ["Adorama.com", "Amazon"],
+            "Brand" => ["Apex", "Avera"],
+            "specs" => {
+              "Display Type" => ["LCD", "LED", "OLED"],
+              "HDR" => ["N", "Y"]
+            }
+          }
         ]
       }
     }

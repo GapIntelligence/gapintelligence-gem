@@ -10,12 +10,14 @@ module GapIntelligence
       record_class = options.delete(:record_class)
       options[:headers] = headers
       options[:raise_errors] = false
+      options[:init_with_response_body] = options.fetch(:init_with_response_body, false)
 
       response = connection.request(method, path, options, &block)
+
+      return RequestError.new(response.parsed['error']) if response.error
+      return instantiate_record(record_class, response_body: response.body) if options[:init_with_response_body]
+
       hash = response.parsed
-
-      return RequestError.new(hash['error']) if response.error
-
       data = hash['data']
 
       case data
@@ -23,11 +25,15 @@ module GapIntelligence
         objects = record_class.nil? ? data : data.collect{ |object| record_class.new(object) }
         RecordSet.new(objects, meta: hash.fetch('meta', {}))
       when Hash
-        record_class.nil? ? data : record_class.new(data)
+        instantiate_record(record_class, data)
       end
     end
 
     private
+    def instantiate_record(record_class, data)
+      record_class.nil? ? data : record_class.new(data)
+    end
+
     def default_option(opts, key, value)
       opts[key] = opts.fetch(key, value)
     end

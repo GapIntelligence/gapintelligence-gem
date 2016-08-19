@@ -10,6 +10,7 @@ module GapIntelligence
     # @return [RequestError] error messages
     # @see http://api.gapintelligence.com/api/doc/v1/merchant_pricing_trends/index.html
     def merchant_pricing_trends(params = {}, options = {}, &block)
+      options[:init_with_response_body] = true
       default_option(options, :record_class, MerchantPricingTrend)
       perform_request(:get, 'merchant_pricing_trends', options.merge(params: params), &block)
     end
