@@ -28,7 +28,7 @@ module GapIntelligence
                   :port,
                   :scope
 
-    def initialize(config = {})
+    def initialize(config = {}, &block)
       @client_id = config[:client_id]         || GapIntelligence.config.client_id
       @client_secret = config[:client_secret] || GapIntelligence.config.client_secret
       @host = config[:host]                   || GapIntelligence.config.host
