@@ -17,7 +17,8 @@ module GapIntelligence
     attr_accessor :client_id,
                   :client_secret,
                   :host,
-                  :port
+                  :port,
+                  :connection_build
 
     def initialize
       @host = 'api.gapintelligence.com'
