@@ -26,7 +26,8 @@ module GapIntelligence
                   :client_secret,
                   :host,
                   :port,
-                  :scope
+                  :scope,
+                  :connection_build
 
     def initialize(config = {}, &block)
       @client_id = config[:client_id]         || GapIntelligence.config.client_id
@@ -63,7 +64,7 @@ module GapIntelligence
       begin
         client_params = {}
         client_params[:scope] = @scope if @scope
-        OAuth2::Client.new(client_id, client_secret, site: api_base_uri, &@connection_build)
+        OAuth2::Client.new(client_id, client_secret, site: api_base_uri, &connection_build)
                       .client_credentials
                       .get_token(client_params, 'auth_scheme' => 'request_body')
       rescue OAuth2::Error
