@@ -16,10 +16,4 @@ describe GapIntelligence::MerchantPricingTrend do
       expect(merchant_pricing_trend.raw[:response_body]).to eq response_body
     end
   end
-
-  describe 'methods' do
-    it 'returns parsed variants from response body' do
-      expect(merchant_pricing_trend.variants).to eq merchant_pricing_trend_data['variants']
-    end
-  end
 end
