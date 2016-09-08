@@ -14,7 +14,7 @@ module GapIntelligence
 
       response = connection.request(method, path, options, &block)
 
-      return RequestError.new(response.parsed['error']) if response.error
+      return RequestError.new(parse_error_message(response)) if response.error
       return instantiate_record(record_class, response_body: response.body) if options[:init_with_response_body]
 
       hash = response.parsed
@@ -40,6 +40,14 @@ module GapIntelligence
 
     def build_resource_path(*path)
       URI.parse(path.join('/')).path
+    end
+
+    def parse_error_message(response)
+      if response.parsed && response.parsed['error']
+        response.parsed['error']
+      else
+        response.error
+      end
     end
   end
 end
