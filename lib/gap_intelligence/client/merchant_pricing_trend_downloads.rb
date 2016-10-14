@@ -31,14 +31,14 @@ module GapIntelligence
     # Deletes merchant pricing trend downloads
     #
     # @param owner_id [String,Integer] owner id of the merchant pricing trend downloads
-    # @param external_record_id [String,Integer] identity of the external record
+    # @param download_ids [Integer] id of the merchant pricing trend downloads
     # @param options [Hash] options the options to make the request with
     # @yield [request] The Faraday request
     # @return [Hash] Response
     # @return [RequestError] error messages
     # @see http://api.gapintelligence.com/api/doc/v1/merchant_pricing_trend_downloads/destroy.html
-    def delete_merchant_pricing_trend_download(owner_id, external_record_id, options = {}, &block)
-      perform_request(:delete, 'merchant_pricing_trend_downloads', options.merge(body: { owner_id: owner_id, external_record_id: external_record_id }), &block)
+    def delete_merchant_pricing_trend_download(owner_id, download_ids, options = {}, &block)
+      perform_request(:delete, 'merchant_pricing_trend_downloads', options.merge(body: { owner_id: owner_id, ids: download_ids }), &block)
     end
   end
 end
