@@ -53,17 +53,17 @@ describe GapIntelligence::MerchantPricingTrendDownloads do
 
   describe '#delete_merchant_pricing_trend_download' do
     let(:owner_id) { 1 }
-    let(:external_record_id) { 7 }
+    let(:download_ids) { ['1'] }
     before { stub_api_request(:delete, url: 'merchant_pricing_trend_downloads', response: { status: 'OK' }) }
-    subject(:result) { client.delete_merchant_pricing_trend_download(owner_id, external_record_id) }
+    subject(:result) { client.delete_merchant_pricing_trend_download(owner_id, download_ids) }
 
     it 'requests the endpoint' do
-      client.delete_merchant_pricing_trend_download(owner_id, external_record_id)
+      client.delete_merchant_pricing_trend_download(owner_id, download_ids)
 
-      expect(api_delete('/merchant_pricing_trend_downloads').with(body: { owner_id: owner_id.to_s, external_record_id: external_record_id.to_s })).to have_been_made
+      expect(api_delete('/merchant_pricing_trend_downloads').with(body: { owner_id: owner_id.to_s, ids: download_ids })).to have_been_made
     end
 
-    it 'returns nothing.' do
+    it 'returns nothing' do
       expect(result).to eq(nil)
     end
 
