@@ -46,7 +46,7 @@ module GapIntelligence
     #
     # @param owner_id [String,Integer] owner id of the download
     # @param download_ids [Integer] id of the download
-    # @param options [Hash] options the options to make the request with
+    # @param options [Hash] the options to make the request with
     # @yield [request] The Faraday request
     # @return [Hash] Response
     # @return [RequestError] error messages

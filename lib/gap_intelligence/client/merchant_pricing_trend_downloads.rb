@@ -32,7 +32,7 @@ module GapIntelligence
     #
     # @param owner_id [String,Integer] owner id of the merchant pricing trend downloads
     # @param download_ids [Integer] id of the merchant pricing trend downloads
-    # @param options [Hash] options the options to make the request with
+    # @param options [Hash] the options to make the request with
     # @yield [request] The Faraday request
     # @return [Hash] Response
     # @return [RequestError] error messages
