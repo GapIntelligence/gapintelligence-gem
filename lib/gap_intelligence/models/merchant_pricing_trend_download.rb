@@ -8,5 +8,6 @@ module GapIntelligence
     attributes :min_price, :max_price
     attributes :specs
     attributes :custom_file_name, :status
+    attribute :created_at, class: Time
   end
 end
