@@ -21,6 +21,8 @@ FactoryGirl.define do
     custom_file_name ''
     status 'done'
 
+    created_at { Time.now.to_s }
+
     initialize_with {
       {
         'id' => 2480,
