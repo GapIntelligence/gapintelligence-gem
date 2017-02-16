@@ -35,6 +35,7 @@ describe Client do
       it 'reflects the port and host in the base URI' do
         client.host = 'localhost'
         client.port = 3000
+        client.use_ssl = false
         expect(client.api_base_uri).to eq URI('http://localhost:3000')
       end
     end
