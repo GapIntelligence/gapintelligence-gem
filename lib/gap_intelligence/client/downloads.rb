@@ -1,5 +1,5 @@
 module GapIntelligence
-  # @see http://api.gapintelligence.com/api/doc/v1/downloads
+  # @see https://api.gapintelligence.com/api/doc/v1/downloads
   module Downloads
 
     # Creates new download
@@ -10,7 +10,7 @@ module GapIntelligence
     # @yield [request] The Faraday request
     # @return [Download] the created download
     # @return [RequestError] error messages
-    # @see http://api.gapintelligence.com/api/doc/v1/downloads/create.html
+    # @see https://api.gapintelligence.com/api/doc/v1/downloads/create.html
     def create_download(owner_id, params, options = {}, &block)
       default_option(options, :record_class, Download)
       perform_request(:post, 'downloads', options.merge(body: { owner_id: owner_id, download: params }), &block)
@@ -23,7 +23,7 @@ module GapIntelligence
     # @param options [Hash] options for the http request
     # @yield [request] The Faraday request
     # @return [RecordSet<Download>] collection of downloads
-    # @see http://api.gapintelligence.com/api/doc/v1/downloads/index.html
+    # @see https://api.gapintelligence.com/api/doc/v1/downloads/index.html
     def downloads(owner_id, params = {}, options = {}, &block)
       default_option(options, :record_class, Download)
       perform_request(:get, 'downloads', options.merge(params: params.merge(owner_id: owner_id)), &block)
@@ -36,7 +36,7 @@ module GapIntelligence
     # @param options [Hash] options for the http request
     # @yield [request] The Faraday request
     # @return [Download] the requested download
-    # @see http://api.gapintelligence.com/api/doc/v1/downloads/show.html
+    # @see https://api.gapintelligence.com/api/doc/v1/downloads/show.html
     def download(owner_id, download_id, options = {}, &block)
       default_option(options, :record_class, Download)
       perform_request(:get, build_resource_path('downloads', download_id), options.merge(params: { owner_id: owner_id }), &block)
@@ -50,7 +50,7 @@ module GapIntelligence
     # @yield [request] The Faraday request
     # @return [Hash] Response
     # @return [RequestError] error messages
-    # @see http://api.gapintelligence.com/api/doc/v1/downloads/destroy.html
+    # @see https://api.gapintelligence.com/api/doc/v1/downloads/destroy.html
     def delete_download(owner_id, download_ids, options = {}, &block)
       perform_request(:delete, 'downloads', options.merge(body: { owner_id: owner_id, ids: download_ids }), &block)
     end

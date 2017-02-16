@@ -1,5 +1,5 @@
 module GapIntelligence
-  # @see http://api.gapintelligence.com/api/doc/v1/merchant_pricing_trends.html
+  # @see https://api.gapintelligence.com/api/doc/v1/merchant_pricing_trends.html
   module MerchantPricingTrends
     # Requests a list of merchant pricing trends
     #
@@ -8,7 +8,7 @@ module GapIntelligence
     # @yield [req] The Faraday request
     # @return [MerchantPricingTrend] the requested data
     # @return [RequestError] error messages
-    # @see http://api.gapintelligence.com/api/doc/v1/merchant_pricing_trends/index.html
+    # @see https://api.gapintelligence.com/api/doc/v1/merchant_pricing_trends/index.html
     def merchant_pricing_trends(params = {}, options = {}, &block)
       options[:init_with_response_body] = true
       default_option(options, :record_class, MerchantPricingTrend)
