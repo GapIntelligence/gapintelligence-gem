@@ -65,5 +65,9 @@ describe GapIntelligence::MerchantPricingTrendDownload do
     it 'has status' do
       expect(download).to respond_to(:status)
     end
+
+    it 'has created_at as Time' do
+      expect(download.created_at).to be_an_instance_of(Time)
+    end
   end
 end

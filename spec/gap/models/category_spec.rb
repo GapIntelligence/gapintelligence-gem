@@ -13,5 +13,9 @@ describe GapIntelligence::Category do
     it 'has full_name' do
       expect(category).to respond_to(:full_name)
     end
+
+    it 'has frequency' do
+      expect(category).to respond_to(:frequency)
+    end
   end
 end
