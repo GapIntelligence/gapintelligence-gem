@@ -46,6 +46,6 @@ module StubsHelper
   end
 
   def build_uri(path)
-    path ? URI.join(format('http://%s', API_HOST), path) : /#{API_HOST}/
+    path ? URI.join(format('https://%s', API_HOST), path) : /#{API_HOST}/
   end
 end
