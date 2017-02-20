@@ -7,7 +7,7 @@ FactoryGirl.define do
         "attributes" => { 'name' => 'A Category',
                           'full_name' => 'A Category Full Name',
                           'frequency' => 'weekly',
-                          'this_weeks_published_day' => '2017-02-13' }
+                          'published_date' => '2000-01-01' }
       }
     }
   end

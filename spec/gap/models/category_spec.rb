@@ -18,8 +18,8 @@ describe GapIntelligence::Category do
       expect(category).to respond_to(:frequency)
     end
 
-    it "has this weeks published day" do
-      expect(category).to respond_to(:this_weeks_published_day)
+    it "has published date" do
+      expect(category.published_date).to be_an_instance_of(Date)
     end
   end
 end

@@ -3,6 +3,6 @@ module GapIntelligence
     attribute :name
     attribute :full_name
     attribute :frequency
-    attribute :this_weeks_published_day
+    attribute :published_date, class: Date
   end
 end
