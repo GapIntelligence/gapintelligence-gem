@@ -17,5 +17,9 @@ describe GapIntelligence::Category do
     it 'has frequency' do
       expect(category).to respond_to(:frequency)
     end
+
+    it "has published date" do
+      expect(category.published_date).to be_an_instance_of(Date)
+    end
   end
 end
