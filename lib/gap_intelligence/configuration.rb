@@ -18,10 +18,13 @@ module GapIntelligence
                   :client_secret,
                   :host,
                   :port,
+                  :use_ssl,
                   :connection_build
 
     def initialize
       @host = 'api.gapintelligence.com'
+      @port = 443
+      @use_ssl = true
     end
   end
 end

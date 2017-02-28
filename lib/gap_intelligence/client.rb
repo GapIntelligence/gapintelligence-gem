@@ -26,6 +26,7 @@ module GapIntelligence
                   :client_secret,
                   :host,
                   :port,
+                  :use_ssl,
                   :scope,
                   :connection_build
 
@@ -34,6 +35,7 @@ module GapIntelligence
       @client_secret = config[:client_secret] || GapIntelligence.config.client_secret
       @host = config[:host]                   || GapIntelligence.config.host
       @port = config[:port]                   || GapIntelligence.config.port
+      @use_ssl = config[:use_ssl]             || GapIntelligence.config.use_ssl
       @scope = config[:scope]
       @connection_build = block               || GapIntelligence.config.connection_build
     end
@@ -82,7 +84,7 @@ module GapIntelligence
     end
 
     def api_base_uri
-      URI::HTTP.build(host: host, port: port)
+      ( use_ssl ? URI::HTTPS : URI::HTTP).build(host: host, port: port)
     end
   end
 end
