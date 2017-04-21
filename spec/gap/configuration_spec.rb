@@ -30,4 +30,18 @@ describe Configuration do
       it { expect(config.client_secret).to eq('CLIENT_SECRET') }
     end
   end
+
+  describe 'raise_errors' do
+    context 'by default' do
+      it { expect(config.raise_errors).to be_falsey }
+    end
+
+    context 'configured via config block' do
+      before {
+        GapIntelligence.configure {|c| c.raise_errors = true }
+      }
+
+      it { expect(config.raise_errors).to be_truthy }
+    end
+  end
 end
