@@ -28,7 +28,8 @@ module GapIntelligence
                   :port,
                   :use_ssl,
                   :scope,
-                  :connection_build
+                  :connection_build,
+                  :raise_errors
 
     def initialize(config = {}, &block)
       @client_id = config[:client_id]         || GapIntelligence.config.client_id
@@ -38,6 +39,7 @@ module GapIntelligence
       @use_ssl = config[:use_ssl]             || GapIntelligence.config.use_ssl
       @scope = config[:scope]
       @connection_build = block               || GapIntelligence.config.connection_build
+      @raise_errors = config[:raise_errors]   || GapIntelligence.config.raise_errors
     end
 
     # Returns the current connection to gAPI. If the connection is old or

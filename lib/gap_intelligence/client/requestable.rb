@@ -9,7 +9,7 @@ module GapIntelligence
     def perform_request(method, path, options = {}, &block)
       record_class = options.delete(:record_class)
       options[:headers] = headers
-      options[:raise_errors] = options.fetch(:raise_errors, false)
+      options[:raise_errors] = options.fetch(:raise_errors, raise_errors)
       options[:init_with_response_body] = options.fetch(:init_with_response_body, false)
 
       response = connection.request(method, path, options, &block)
