@@ -8,15 +8,16 @@ module GapIntelligence
     # @yield [req] The Faraday request
     def perform_request(method, path, options = {}, &block)
       record_class = options.delete(:record_class)
+      raise_error = options.fetch(:raise_errors, raise_errors)
       options[:headers] = headers
-      options[:raise_errors] = options.fetch(:raise_errors, raise_errors)
+      options[:raise_errors] = false
       options[:init_with_response_body] = options.fetch(:init_with_response_body, false)
 
       response = connection.request(method, path, options, &block)
 
       if response.error
         error = RequestError.new(parse_error_message(response))
-        raise(error) if options[:raise_errors]
+        raise(error) if raise_error
         return nil
       end
 
