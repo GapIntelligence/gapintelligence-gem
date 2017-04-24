@@ -64,7 +64,7 @@ describe GapIntelligence::Requestable do
 
         it 'raises error' do
           expect {
-            client.perform_request(:get, 'path', raise_errors: true)
+            client.perform_request(:get, 'path')
           }.to raise_error(RequestError)
         end
       end
