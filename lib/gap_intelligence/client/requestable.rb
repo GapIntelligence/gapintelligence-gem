@@ -6,6 +6,7 @@ module GapIntelligence
     # @param [String] path URL path of request
     # @param [Hash] options the options to make the request with
     # @yield [req] The Faraday request
+    # @raise [RequestError] If raise_errors set true and request fails for any reason
     def perform_request(method, path, options = {}, &block)
       record_class = options.delete(:record_class)
       raise_error = options.fetch(:raise_errors, raise_errors)
