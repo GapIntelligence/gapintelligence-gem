@@ -6,15 +6,22 @@ module GapIntelligence
     # @param [String] path URL path of request
     # @param [Hash] options the options to make the request with
     # @yield [req] The Faraday request
+    # @raise [RequestError] If raise_errors set true and request fails for any reason
     def perform_request(method, path, options = {}, &block)
       record_class = options.delete(:record_class)
+      raise_error = options.fetch(:raise_errors, raise_errors)
       options[:headers] = headers
       options[:raise_errors] = false
       options[:init_with_response_body] = options.fetch(:init_with_response_body, false)
 
       response = connection.request(method, path, options, &block)
 
-      return RequestError.new(parse_error_message(response)) if response.error
+      if response.error
+        error = RequestError.new(parse_error_message(response))
+        raise(error) if raise_error
+        return nil
+      end
+
       return instantiate_record(record_class, response_body: response.body) if options[:init_with_response_body]
 
       hash = response.parsed

@@ -20,11 +20,10 @@ describe GapIntelligence::MerchantPricingTrendDownloads do
       expect(result).to be_instance_of MerchantPricingTrendDownload
     end
 
-    it 'returns error messages if parameters are not valid' do
+    it 'returns nil if parameters are not valid' do
       stub_api_request(:post, url: 'merchant_pricing_trend_downloads', response: { error: 'error message' }, status: 422)
 
-      expect(result).to be_instance_of RequestError
-      expect(result.message).to eq('error message')
+      expect(result).to be_nil
     end
   end
 
@@ -67,11 +66,10 @@ describe GapIntelligence::MerchantPricingTrendDownloads do
       expect(result).to eq(nil)
     end
 
-    it 'returns error messages if there is no such merchant pricing trend download.' do
+    it 'returns nil if there is no such merchant pricing trend download.' do
       stub_api_request(:delete, url: 'merchant_pricing_trend_downloads', response: { error: 'error message' }, status: 404)
 
-      expect(result).to be_instance_of RequestError
-      expect(result.message).to eq('error message')
+      expect(result).to be_nil
     end
   end
 end
