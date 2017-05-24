@@ -38,7 +38,7 @@ module GapIntelligence
     # @see https://api.gapintelligence.com/api/doc/v1/merchant_pricing_trend_downloads/show.html
     def merchant_pricing_trend_download(owner_id, download_id, options = {}, &block)
       default_option(options, :record_class, MerchantPricingTrendDownload)
-      perform_request(:get, build_resource_path('merchant_pricing_trend_downloads', download_id), options.merge(params: params.merge(owner_id: owner_id)), &block)
+      perform_request(:get, build_resource_path('merchant_pricing_trend_downloads', download_id), options.merge(params: { owner_id: owner_id }), &block)
     end
 
     # Deletes merchant pricing trend downloads
