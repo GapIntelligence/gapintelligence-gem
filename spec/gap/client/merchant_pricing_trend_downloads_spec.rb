@@ -50,6 +50,22 @@ describe GapIntelligence::MerchantPricingTrendDownloads do
     end
   end
 
+  describe '#merchant_pricing_trend_download' do
+    let(:owner_id) { 1 }
+    let(:download) { build(:merchant_pricing_trend_download) }
+    before { stub_api_request(:get, response: { data: download }) }
+    subject(:record) { client.merchant_pricing_trend_download(owner_id, download['id']) }
+
+    it 'requests the endpoint' do
+      client.merchant_pricing_trend_download(owner_id, download['id'])
+      expect(api_get(format('/merchant_pricing_trend_downloads/%i?owner_id=%i', download['id'], owner_id))).to have_been_made
+    end
+
+    it 'returns record' do
+      expect(record).to be_instance_of(GapIntelligence::MerchantPricingTrendDownload)
+    end
+  end
+
   describe '#delete_merchant_pricing_trend_download' do
     let(:owner_id) { 1 }
     let(:download_ids) { ['1'] }
