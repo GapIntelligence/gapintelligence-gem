@@ -18,6 +18,7 @@ module GapIntelligence
     include Merchants
     include MerchantPricingTrends
     include MerchantPricingTrendDownloads
+    include Products
     include Headers
     include Files
 
