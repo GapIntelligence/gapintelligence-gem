@@ -14,6 +14,14 @@ describe GapIntelligence::Product do
       expect(product).to respond_to(:part_number)
     end
 
+    it 'has brand_name' do
+      expect(product).to respond_to(:brand_name)
+    end
+
+    it 'has category_name' do
+      expect(product).to respond_to(:category_name)
+    end
+
     it 'has product_status' do
       expect(product).to respond_to(:product_status)
     end
@@ -76,14 +84,6 @@ describe GapIntelligence::Product do
 
     it 'has most_frequent_retail_net_price' do
       expect(product).to respond_to(:most_frequent_retail_net_price)
-    end
-
-    it 'has brand_name' do
-      expect(product).to respond_to(:brand_name)
-    end
-
-    it 'has category_name' do
-      expect(product).to respond_to(:category_name)
     end
   end
 end
