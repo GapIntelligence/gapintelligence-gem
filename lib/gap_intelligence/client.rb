@@ -7,6 +7,7 @@ require 'gap_intelligence/client/headers'
 require 'gap_intelligence/client/merchants'
 require 'gap_intelligence/client/merchant_pricing_trends'
 require 'gap_intelligence/client/merchant_pricing_trend_downloads'
+require 'gap_intelligence/client/products'
 
 module GapIntelligence
   class Client
