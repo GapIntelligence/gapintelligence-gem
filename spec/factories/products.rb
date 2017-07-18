@@ -25,7 +25,9 @@ FactoryGirl.define do
           'most_frequent_retail_net_price' => '12.34',
           'links' => {
             'self' => 'http://api.gapintelligence.com/api/v1/products/123'
-          }
+          },
+          'brand_name' => 'Tablet Maker',
+          'category_name' => 'Tablets'
         }
       }
     }

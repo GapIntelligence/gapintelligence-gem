@@ -18,5 +18,7 @@ module GapIntelligence
     attribute :most_frequent_monthly_price
     attribute :most_frequent_retail_weekly_price
     attribute :most_frequent_retail_net_price
+    attribute :brand_name
+    attribute :category_name
   end
 end
