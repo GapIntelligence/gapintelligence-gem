@@ -85,5 +85,9 @@ describe GapIntelligence::Product do
     it 'has most_frequent_retail_net_price' do
       expect(product).to respond_to(:most_frequent_retail_net_price)
     end
+
+    it 'has image_url' do
+      expect(product).to respond_to(:image_url)
+    end
   end
 end
