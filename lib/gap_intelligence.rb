@@ -10,6 +10,7 @@ require 'gap_intelligence/errors/request_error'
 
 require 'gap_intelligence/configuration'
 require 'gap_intelligence/models/record'
+require 'gap_intelligence/models/ad_share'
 require 'gap_intelligence/models/advertisement'
 require 'gap_intelligence/models/brand'
 require 'gap_intelligence/models/category'
