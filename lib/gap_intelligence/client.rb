@@ -1,4 +1,5 @@
 require 'gap_intelligence/client/requestable'
+require 'gap_intelligence/client/advertisements'
 require 'gap_intelligence/client/brands'
 require 'gap_intelligence/client/categories'
 require 'gap_intelligence/client/downloads'
@@ -8,10 +9,12 @@ require 'gap_intelligence/client/merchants'
 require 'gap_intelligence/client/merchant_pricing_trends'
 require 'gap_intelligence/client/merchant_pricing_trend_downloads'
 require 'gap_intelligence/client/products'
+require 'gap_intelligence/client/promotions'
 
 module GapIntelligence
   class Client
     include Requestable
+    include Advertisements
     include Brands
     include Categories
     include Downloads
@@ -19,6 +22,7 @@ module GapIntelligence
     include MerchantPricingTrends
     include MerchantPricingTrendDownloads
     include Products
+    include Promotions
     include Headers
     include Files
 
