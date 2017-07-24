@@ -44,5 +44,13 @@ describe GapIntelligence::Advertisement do
     it 'has correct attributes' do
       expect(subject).to respond_to(*advertisement_attributes)
     end
+
+    it "has ad_date as Date" do
+      expect(subject.ad_date).to be_an_instance_of(Date)
+    end
+
+    it "has end_date as Date" do
+      expect(subject.end_date).to be_an_instance_of(Date)
+    end
   end
 end

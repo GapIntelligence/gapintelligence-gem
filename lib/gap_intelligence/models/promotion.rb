@@ -1,7 +1,7 @@
 module GapIntelligence
   class Promotion < Record
-    attribute :start_date
-    attribute :end_date
+    attribute :start_date, class: Date
+    attribute :end_date, class: Date
     attribute :promotion_type
     attribute :value
     attribute :bundle_type

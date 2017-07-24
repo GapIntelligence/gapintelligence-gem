@@ -27,5 +27,13 @@ describe GapIntelligence::Promotion do
     it 'has correct attributes' do
       expect(subject).to respond_to(*promotion_attributes)
     end
+
+    it "has start_date as Date" do
+      expect(subject.start_date).to be_an_instance_of(Date)
+    end
+
+    it "has end_date as Date" do
+      expect(subject.end_date).to be_an_instance_of(Date)
+    end
   end
 end
