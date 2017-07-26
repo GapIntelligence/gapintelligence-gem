@@ -12,5 +12,10 @@ module GapIntelligence
       default_option(options, :record_class, Product)
       perform_request(:get, 'products', options.merge(params: params), &block)
     end
+
+    def product(product_id, options = {}, &block)
+      default_option(options, :record_class, Product)
+      perform_request(:get, build_resource_path('products', product_id), options, &block)
+    end
   end
 end
