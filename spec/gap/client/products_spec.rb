@@ -25,4 +25,19 @@ describe GapIntelligence::Products do
       expect(record_set.count).to eq(3)
     end
   end
+
+  describe '#product' do
+    let(:product) { build(:product) }
+    before { stub_api_request(:get, response: { data: product }) }
+    subject(:record) { client.product(product['id']) }
+
+    it 'requests the endpoint' do
+      client.product(product['id'])
+      expect(api_get(format('/products/%i', product['id']))).to have_been_made
+    end
+
+    it 'returns record' do
+      expect(record).to be_instance_of(GapIntelligence::Product)
+    end
+  end
 end
