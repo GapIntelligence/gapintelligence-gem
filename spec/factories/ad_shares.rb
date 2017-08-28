@@ -2,34 +2,34 @@ FactoryGirl.define do
   factory :ad_share, class: Hash do
     initialize_with {
       {
-        "values" => [
+        'values' => [
           {
-            "category_id": 1,
-            "merchant_id": 1,
-            "brand_id": 1,
-            "start_date": "2017-01-01",
-            "end_date": "2017-01-07",
-            "promotion_type": "retail_circular",
-            "incentive_type": "Instant Savings",
-            "Core Spec 1": "1"
+            'category_id' => 1,
+            'merchant_id' => 1,
+            'brand_id' => 1,
+            'start_date' => '2017-01-01',
+            'end_date' => '2017-01-07',
+            'promotion_type' => 'retail_circular',
+            'incentive_type' => 'Instant Savings',
+            'Core Spe 1' => '1'
           }
         ],
-        "variants": {
-          "merchants": [
+        'variants' => {
+          'merchants' => [
             {
-                "id": 1,
-                "name": "Merchant",
-                "channel": 1
+                'id' => 1,
+                'name' => 'Merchant',
+                'channel' => 1
             }
           ],
-          "brands": [
+          'brands' => [
             {
-                "id": 1,
-                "name": "Brand"
+                'id' => 1,
+                'name' => 'Brand'
             }
           ],
-          "specs": {
-            "Core Spec 1": [
+          'specs' => {
+            'Core Spec 1' => [
                 '1'
             ]
           }
