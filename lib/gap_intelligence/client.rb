@@ -11,6 +11,7 @@ require 'gap_intelligence/client/merchant_pricing_trends'
 require 'gap_intelligence/client/merchant_pricing_trend_downloads'
 require 'gap_intelligence/client/products'
 require 'gap_intelligence/client/product_presence'
+require 'gap_intelligence/client/product_snapshot'
 require 'gap_intelligence/client/promotions'
 
 module GapIntelligence
@@ -26,6 +27,7 @@ module GapIntelligence
     include MerchantPricingTrendDownloads
     include Products
     include ProductPresence
+    include ProductSnapshot
     include Promotions
     include Headers
     include Files
