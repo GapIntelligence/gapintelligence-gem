@@ -18,8 +18,12 @@ describe GapIntelligence::Category do
       expect(category).to respond_to(:frequency)
     end
 
-    it "has published date" do
+    it 'has published date' do
       expect(category.published_date).to be_an_instance_of(Date)
+    end
+
+    it 'has publish tag only' do
+      expect(category).to respond_to(:publish_tag_only)
     end
   end
 end
