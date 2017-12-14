@@ -8,7 +8,7 @@ module GapIntelligence
     # @yield [req] The Faraday request
     # @return [RecordSet<Brand>] the requested merchants
     # @see https://api.gapintelligence.com/api/doc/v1/brands/index.html
-    def brands(params = {'category_name' => ''}, options = {}, &block)
+    def brands(params = {}, options = {}, &block)
       default_option(options, :record_class, Brand)
       perform_request(:get, 'brands', options.merge(params: params), &block)
     end
