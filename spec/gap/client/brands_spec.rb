@@ -10,7 +10,12 @@ describe GapIntelligence::Brands do
 
     it 'requests the endpoint' do
       client.brands
-      expect(api_get('/brands?category_name=')).to have_been_made
+      expect(api_get('/brands')).to have_been_made
+    end
+
+    it 'requests the endpoint with params' do
+      client.brands(category_name: 'hp')
+      expect(api_get('/brands?category_name=hp')).to have_been_made
     end
 
     it 'returns record set' do
