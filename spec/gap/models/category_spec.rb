@@ -25,5 +25,8 @@ describe GapIntelligence::Category do
     it 'has publish tag only' do
       expect(category).to respond_to(:publish_tag_only)
     end
+    it 'has publish product location only' do
+      expect(category).to respond_to(:publish_product_location)
+    end
   end
 end
