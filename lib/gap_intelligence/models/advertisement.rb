@@ -2,6 +2,7 @@ module GapIntelligence
   class Advertisement < Record
     attribute :ad_date, class: Date
     attribute :end_date, class: Date
+    attribute :advertisement_type
     attribute :promotion_type
     attribute :ad_location
     attribute :print_verified
