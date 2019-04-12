@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :ad_share, class: Hash do
+  factory :ad_image, class: Hash do
     initialize_with {
       {
         'id' => '123',
