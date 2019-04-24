@@ -14,7 +14,8 @@ FactoryGirl.define do
             {
               'id' => '456',
               'position' => 1,
-              'image_url' => 'https://gapi-staging.s3.amazonaws.com/uploads/ad_page/image/83688/Manny_Festa.jpg?AWSAccessKeyId=AKIAIHC7SBLIBPKMA6EA&Expires=1586548892&Signature=Pix86Xa1%2BCRjcgNLBhavjOS7OGM%3D'
+              'image_url' => 'https://gapi-staging.s3.amazonaws.com/uploads/ad_page/image/83842/kitten_otis.JPG?AWSAccessKeyId=AKIAIHC7SBLIBPKMA6EA&Expires=1587656777&Signature=oXVG5N6F0fPoGhCNKsAD77huzSI%3D',
+              'image_thumb_url' => 'https://gapi-staging.s3.amazonaws.com/uploads/ad_page/image/83842/thumb_kitten_otis.JPG?AWSAccessKeyId=AKIAIHC7SBLIBPKMA6EA&Expires=1587656777&Signature=n99jUk1dxNe9hC8BmFeDNaL9aDk%3D'
             },
           ]
         }
