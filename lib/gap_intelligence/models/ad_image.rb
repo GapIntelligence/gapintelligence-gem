@@ -1,9 +1,7 @@
 module GapIntelligence
   class AdImage < Record
-    attribute :name
-    attribute :start_date
-    attribute :end_date
-    attribute :ad_type
+    attributes :ad_type, :name, :merchant_name
+    attributes :start_date, :end_date, class: Date
     attribute :ad_pages
   end
 end

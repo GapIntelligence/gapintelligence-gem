@@ -22,6 +22,10 @@ describe GapIntelligence::AdImage do
       expect(ad_image).to respond_to(:ad_type)
     end
 
+    it 'has merchant_name' do
+      expect(ad_image).to respond_to(:merchant_name)
+    end
+
     it 'has ad_pages' do
       expect(ad_image).to respond_to(:ad_pages)
     end
