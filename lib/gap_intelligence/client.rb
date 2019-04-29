@@ -1,4 +1,5 @@
 require 'gap_intelligence/client/requestable'
+require 'gap_intelligence/client/ad_images'
 require 'gap_intelligence/client/ad_shares'
 require 'gap_intelligence/client/advertisements'
 require 'gap_intelligence/client/brands'
@@ -16,6 +17,7 @@ require 'gap_intelligence/client/promotions'
 module GapIntelligence
   class Client
     include Requestable
+    include AdImages
     include AdShares
     include Advertisements
     include Brands
