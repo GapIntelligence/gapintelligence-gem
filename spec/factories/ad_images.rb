@@ -1,25 +1,17 @@
 FactoryGirl.define do
   factory :ad_image, class: Hash do
-    initialize_with {
+    merchant_name 'OfficeDepot.com'
+    ad_type 'banner_ad'
+    start_date '2019-01-14'
+    end_date '2019-01-15'
+    ad_pages { build_list(:ad_page, 1) }
+
+    initialize_with do
       {
-        'id' => '123',
+        'id' => 1,
         'type' => 'ad_images',
-        'attributes' => {
-          'name' => 'Online Banner Ad',
-          'start_date' => '2019-04-01',
-          'end_date' => '2019-04-02',
-          'ad_type' => 'banner_ad',
-          'merchant_name' => 'Costco',
-          'ad_pages' => [
-            {
-              'id' => '456',
-              'position' => 1,
-              'image_url' => 'https://gapi-staging.s3.amazonaws.com/uploads/ad_page/image/83842/kitten_otis.JPG?AWSAccessKeyId=AKIAIHC7SBLIBPKMA6EA&Expires=1587656777&Signature=oXVG5N6F0fPoGhCNKsAD77huzSI%3D',
-              'image_thumb_url' => 'https://gapi-staging.s3.amazonaws.com/uploads/ad_page/image/83842/thumb_kitten_otis.JPG?AWSAccessKeyId=AKIAIHC7SBLIBPKMA6EA&Expires=1587656777&Signature=n99jUk1dxNe9hC8BmFeDNaL9aDk%3D'
-            },
-          ]
-        }
+        'attributes' => attributes.stringify_keys
       }
-    }
+    end
   end
 end
