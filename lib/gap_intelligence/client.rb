@@ -43,6 +43,7 @@ module GapIntelligence
                   :use_ssl,
                   :scope,
                   :connection_build,
+                  :connection_opts,
                   :raise_errors
 
     def initialize(config = {}, &block)
@@ -54,6 +55,8 @@ module GapIntelligence
       @scope = config[:scope]
       @connection_build = block               || GapIntelligence.config.connection_build
       @raise_errors = config[:raise_errors]   || GapIntelligence.config.raise_errors
+
+      @connection_opts = config[:connection_opts] || GapIntelligence.config.connection_opts
     end
 
     # Returns the current connection to gAPI. If the connection is old or
@@ -82,7 +85,7 @@ module GapIntelligence
       begin
         client_params = {}
         client_params[:scope] = @scope if @scope
-        OAuth2::Client.new(client_id, client_secret, site: api_base_uri, &connection_build)
+        OAuth2::Client.new(client_id, client_secret, { site: api_base_uri, connection_opts: connection_opts }, &connection_build)
                       .client_credentials
                       .get_token(client_params, 'auth_scheme' => 'request_body')
       rescue OAuth2::Error
