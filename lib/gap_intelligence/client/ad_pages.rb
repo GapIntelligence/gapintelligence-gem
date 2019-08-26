@@ -8,9 +8,9 @@ module GapIntelligence
     # @yield [req] The Faraday request
     # @return [RecordSet<AdPage>] collection of ad pages
     # @see https://api.gapintelligence.com/api/doc/v1/ad_pages/index.html
-    def ad_pages(ad_image_id, options = {}, &block)
+    def ad_pages(params = {}, options = {}, &block)
       default_option(options, :record_class, AdPage)
-      perform_request(:get, build_resource_path('ad_images', ad_image_id, 'ad_pages'), options, &block)
+      perform_request(:get, build_resource_path('ad_images', params[:ad_image_id], 'ad_pages'), options.merge(params: params), &block)
     end
 
     # Requests and returns an ad page
