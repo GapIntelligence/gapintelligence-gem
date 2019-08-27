@@ -20,4 +20,26 @@ describe GapIntelligence::AdPages do
       expect(record).to be_instance_of(GapIntelligence::AdImage)
     end
   end
+
+  describe '#ad_pages' do
+    before { stub_api_request(:get, response: { data: build_list(:ad_page, 2) }) }
+    subject(:record_set) { client.ad_pages }
+
+    it 'requests the endpoint' do
+      client.ad_pages
+      expect(api_get('/ad_images/ad_pages')).to have_been_made
+    end
+
+    it 'returns record set' do
+      expect(record_set).to be_instance_of(GapIntelligence::RecordSet)
+    end
+
+    it 'returns set of specified type' do
+      expect(record_set).to all be_an(GapIntelligence::AdPage)
+    end
+
+    it 'contains proper count of elements' do
+      expect(record_set.count).to eq(2)
+    end
+  end
 end

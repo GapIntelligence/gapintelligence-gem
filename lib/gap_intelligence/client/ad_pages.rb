@@ -3,7 +3,7 @@ module GapIntelligence
   module AdPages
     # Requests and returns an ad pages
     #
-    # @param ad_image_id [String] ad image id
+    # @param params [Hash] parameters of the http request
     # @param options [Hash] the options to make the request with
     # @yield [req] The Faraday request
     # @return [RecordSet<AdPage>] collection of ad pages
