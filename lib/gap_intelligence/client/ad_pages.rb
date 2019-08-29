@@ -10,7 +10,19 @@ module GapIntelligence
     # @see https://api.gapintelligence.com/api/doc/v1/ad_pages/index.html
     def ad_pages(params = {}, options = {}, &block)
       default_option(options, :record_class, AdPage)
-      perform_request(:get, build_resource_path('ad_images', params[:ad_image_id], 'ad_pages'), options.merge(params: params), &block)
+      perform_request(:get, 'ad_pages', options.merge(params: params), &block)
+    end
+
+    # Requests and returns a preview of ad pages
+    #
+    # @param params [Hash] parameters of the http request
+    # @param options [Hash] the options to make the request with
+    # @yield [req] The Faraday request
+    # @return [RecordSet<AdPage>] collection of ad pages
+    # @see https://api.gapintelligence.com/api/doc/v1/ad_pages/preview.html
+    def preview_ad_pages(params = {}, options = {}, &block)
+      default_option(options, :record_class, AdPage)
+      perform_request(:get, 'ad_pages/preview', options.merge(params: params), &block)
     end
 
     # Requests and returns an ad page
