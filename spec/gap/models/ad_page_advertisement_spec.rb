@@ -36,6 +36,7 @@ describe GapIntelligence::AdPageAdvertisement do
       region
       print_verified
       online_verified
+      public_id
     ]
   end
 

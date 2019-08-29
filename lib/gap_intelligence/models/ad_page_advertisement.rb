@@ -31,5 +31,6 @@ module GapIntelligence
     attribute :region
     attribute :print_verified
     attribute :online_verified
+    attribute :public_id
   end
 end
