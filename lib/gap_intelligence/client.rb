@@ -20,6 +20,7 @@ module GapIntelligence
     include Requestable
     include AdImages
     include AdPages
+    include AdPageAdvertisements
     include AdShares
     include Advertisements
     include Brands
