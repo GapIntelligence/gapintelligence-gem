@@ -1,6 +1,7 @@
 require 'gap_intelligence/client/requestable'
 require 'gap_intelligence/client/ad_images'
 require 'gap_intelligence/client/ad_pages'
+require 'gap_intelligence/client/ad_page_advertisements'
 require 'gap_intelligence/client/ad_shares'
 require 'gap_intelligence/client/advertisements'
 require 'gap_intelligence/client/brands'
