@@ -5,13 +5,18 @@ describe GapIntelligence::AdPageAdvertisement do
 
   let!(:ad_page_advertisement_attributes) do
     %i[
+      category
+      merchant
+      brand
+      product_status_when_advertised
+      product_part_number
+      merchant_sku
+      shelf_price_when_advertised
+      advertised_price
       ad_date
       end_date
+      advertisement_type
       promotion_type
-      ad_location
-      print_verified
-      online_verified
-      advertised_price
       bundle_type
       instant_savings
       mail_in_rebate
@@ -22,23 +27,15 @@ describe GapIntelligence::AdPageAdvertisement do
       merchant_gift_card
       merchant_rewards
       recycling
-      miscellaneous
-      page_number
-      merchant_sku
-      ad_name
-      details
-      gap_url
-      region
+      misc
       total_value
-      category_name
-      brand
-      part_number
-      product_name
-      merchant
-      deleted
-      advertisement_type
-      print_page_number
+      details
+      ad_location
+      ad_name
       image_number
+      region
+      print_verified
+      online_verified
     ]
   end
 
