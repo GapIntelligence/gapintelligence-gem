@@ -5,6 +5,8 @@ describe GapIntelligence::AdPageAdvertisement do
 
   let!(:ad_page_advertisement_attributes) do
     %i[
+      ad_date
+      end_date
       category
       merchant
       brand
@@ -13,8 +15,6 @@ describe GapIntelligence::AdPageAdvertisement do
       merchant_sku
       shelf_price_when_advertised
       advertised_price
-      ad_date
-      end_date
       advertisement_type
       promotion_type
       bundle_type
@@ -27,7 +27,7 @@ describe GapIntelligence::AdPageAdvertisement do
       merchant_gift_card
       merchant_rewards
       recycling
-      misc
+      miscellaneous
       total_value
       details
       ad_location
