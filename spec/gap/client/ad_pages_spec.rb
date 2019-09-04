@@ -27,7 +27,7 @@ describe GapIntelligence::AdPages do
 
     it 'requests the endpoint' do
       client.ad_pages
-      expect(api_get('/ad_images/ad_pages')).to have_been_made
+      expect(api_get('/ad_pages')).to have_been_made
     end
 
     it 'returns record set' do
