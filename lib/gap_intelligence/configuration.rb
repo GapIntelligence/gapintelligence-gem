@@ -27,7 +27,7 @@ module GapIntelligence
       @host = 'api.gapintelligence.com'
       @port = 443
       @use_ssl = true
-      @connection_opts = {}
+      @connection_opts = { request: { timeout: 50000 } }
       @raise_errors = false
     end
   end
