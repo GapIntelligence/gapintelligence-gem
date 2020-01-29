@@ -24,9 +24,9 @@ module GapIntelligence
                   :raise_errors
 
     def initialize
-      @host = 'api.gapintelligence.com'
-      @port = 443
-      @use_ssl = true
+      @host = 'localhost'
+      @port = 4000
+      @use_ssl = false
       @connection_opts = { request: { timeout: 50000 } }
       @raise_errors = false
     end
