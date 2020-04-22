@@ -1,5 +1,6 @@
 module GapIntelligence
   class Pricing < Record
+    attribute :id
     attribute :published_date
     attribute :net_price
     attribute :shelf_price
