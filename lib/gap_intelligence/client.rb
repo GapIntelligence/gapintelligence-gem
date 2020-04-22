@@ -33,6 +33,7 @@ module GapIntelligence
     include Merchants
     include MerchantPricingTrends
     include MerchantPricingTrendDownloads
+    include NotesAndChanges
     include Products
     include ProductPresence
     include Promotions
