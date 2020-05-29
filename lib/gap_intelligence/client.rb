@@ -6,6 +6,7 @@ require 'gap_intelligence/client/ad_shares'
 require 'gap_intelligence/client/advertisements'
 require 'gap_intelligence/client/brands'
 require 'gap_intelligence/client/categories'
+require 'gap_intelligence/client/category_versions'
 require 'gap_intelligence/client/countries'
 require 'gap_intelligence/client/downloads'
 require 'gap_intelligence/client/files'
@@ -28,6 +29,7 @@ module GapIntelligence
     include Brands
     include Countries
     include Categories
+    include CategoryVersions
     include Downloads
     include Merchants
     include MerchantPricingTrends
