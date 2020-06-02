@@ -26,6 +26,10 @@ describe GapIntelligence::Download do
       expect(download.category_names).to be_an_instance_of(Array)
     end
 
+    it 'has category_versions' do
+      expect(download.category_versions).to be_an_instance_of(Array)
+    end
+
     it 'has countries as Array' do
       expect(download.countries).to be_an_instance_of(Array)
     end
