@@ -8,5 +8,6 @@ module GapIntelligence
     attribute :publish_tag_only
     attribute :publish_product_location
     attribute :country_code
+    attribute :report_types
   end
 end

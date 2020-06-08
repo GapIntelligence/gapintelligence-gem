@@ -26,8 +26,12 @@ describe GapIntelligence::CategoryVersion do
       expect(category_version).to respond_to(:publish_product_location)
     end
 
-    it 'has publish product location only' do
+    it 'has country code' do
       expect(category_version).to respond_to(:country_code)
+    end
+
+    it 'has report types' do
+      expect(category_version).to respond_to(:report_types)
     end
   end
 end
