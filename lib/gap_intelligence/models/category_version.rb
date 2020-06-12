@@ -2,6 +2,7 @@ module GapIntelligence
   class CategoryVersion < Record
     attribute :name
     attribute :full_name
+    attribute :display_name
     attribute :category_id
     attribute :frequency
     attribute :published_date, class: Date

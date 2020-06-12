@@ -6,6 +6,7 @@ FactoryGirl.define do
         "type" => "categories",
         "attributes" => { 'name' => 'A Category',
                           'full_name' => 'A Category Full Name',
+                          'display_name' => 'A display name',
                           'category_id' => 1,
                           'frequency' => 'weekly',
                           'frequency' => 'weekly',
