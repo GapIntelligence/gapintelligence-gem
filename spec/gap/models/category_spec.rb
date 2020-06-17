@@ -29,9 +29,5 @@ describe GapIntelligence::Category do
     it 'has publish product location only' do
       expect(category).to respond_to(:publish_product_location)
     end
-
-    it 'has country code' do
-      expect(category).to respond_to(:country_code)
-    end
   end
 end
