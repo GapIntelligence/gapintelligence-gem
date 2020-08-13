@@ -23,6 +23,7 @@ require 'gap_intelligence/client/products'
 require 'gap_intelligence/client/product_presence'
 require 'gap_intelligence/client/promo_matrix'
 require 'gap_intelligence/client/promotions'
+require 'gap_intelligence/client/pricings'
 
 module GapIntelligence
   class Client
@@ -40,6 +41,7 @@ module GapIntelligence
     include Downloads
     include InStoreImages
     include Merchants
+    include Pricings
     include MerchantPricingTrends
     include NotesAndChanges
     include Pricings
