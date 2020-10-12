@@ -6,9 +6,8 @@ FactoryGirl.define do
     end_at '2016-02-23'
     created_at Time.now.to_s
     categories ['1']
-    category_names ['TVs']
+    category_versions ['1']
     countries ['US']
-    country_names ['United States']
     report_types ['pricings']
     report_type_names ['Pricings']
     merchants ['Walgreens']
