@@ -30,7 +30,7 @@ module GapIntelligence
     end
 
     def raw
-      { response_body: @attributes }
+      @attributes
     end
 
     private
