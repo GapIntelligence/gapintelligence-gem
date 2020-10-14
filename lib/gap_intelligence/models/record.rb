@@ -25,13 +25,12 @@ module GapIntelligence
     attr_reader :id
 
     def initialize(attrs = {})
-      @raw = attrs
-      @id = raw['id']
-      @attributes = raw.fetch('attributes', raw)
+      @id = attrs['id']
+      @attributes = attrs.fetch('attributes', attrs)
     end
 
     def raw
-      @raw
+      { response_body: @attributes }
     end
 
     private
