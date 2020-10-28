@@ -9,7 +9,6 @@ FactoryGirl.define do
                           'display_name' => 'A display name',
                           'category_id' => 1,
                           'frequency' => 'weekly',
-                          'frequency' => 'weekly',
                           'published_date' => '2000-01-01',
                           'country_code' => 'US' }
       }
