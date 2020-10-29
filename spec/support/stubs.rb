@@ -33,16 +33,22 @@ module StubsHelper
     end
   end
 
-  def api_get(path)
-    a_request(:get, build_uri(path))
+  def api_get(path, options = {})
+    build_request(:get, path, options)
   end
 
-  def api_post(path)
-    a_request(:post, build_uri(path))
+  def api_post(path, options = {})
+    build_request(:post, path, options)
   end
 
-  def api_delete(path)
-    a_request(:delete, build_uri(path))
+  def api_delete(path, options = {})
+    build_request(:delete, path, options)
+  end
+
+  def build_request(method, path, options = {})
+    a_request(method, build_uri(path)).tap do |request|
+      request.with(options) unless options.empty?
+    end
   end
 
   def build_uri(path)

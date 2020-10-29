@@ -12,7 +12,7 @@ describe GapIntelligence::PromoMatrix do
     it 'requests the endpoint' do
       client.promo_matrix_product_versions(params)
 
-      expect(api_get('/promo_matrix/product_versions?category_version_id=1&end_at=2020-02-01&merchant_id=1&start_at=2020-01-01').with(body: params)).to have_been_made
+      expect(api_get('/promo_matrix/product_versions', query: params)).to have_been_made
     end
 
     it 'returns record set' do
@@ -36,7 +36,7 @@ describe GapIntelligence::PromoMatrix do
     it 'requests the endpoint' do
       client.promo_matrix_product_placements(params)
 
-      expect(api_get('/promo_matrix/product_placements?end_at=2020-02-01&product_version_id=1&start_at=2020-01-01').with(body: params)).to have_been_made
+      expect(api_get('/promo_matrix/product_placements', query: params)).to have_been_made
     end
 
     it 'returns record set' do
@@ -60,7 +60,7 @@ describe GapIntelligence::PromoMatrix do
     it 'requests the endpoint' do
       client.promo_matrix_pricings(params)
 
-      expect(api_get('/promo_matrix/pricings?end_at=2020-02-01&merchant_id=1&product_version_id=1&start_at=2020-01-01').with(body: params)).to have_been_made
+      expect(api_get('/promo_matrix/pricings', query: params)).to have_been_made
     end
 
     it 'returns record set' do
