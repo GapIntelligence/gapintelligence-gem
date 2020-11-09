@@ -18,6 +18,10 @@ describe GapIntelligence::CategoryVersion do
       expect(category_version).to respond_to(:display_name)
     end
 
+    it 'has display_cents' do
+      expect(category_version).to respond_to(:display_cents)
+    end
+
     it 'has frequency' do
       expect(category_version).to respond_to(:frequency)
     end

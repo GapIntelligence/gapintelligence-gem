@@ -3,6 +3,7 @@ module GapIntelligence
     attribute :name
     attribute :full_name
     attribute :display_name
+    attribute :display_cents
     attribute :category_id
     attribute :frequency
     attribute :published_date, class: Date
