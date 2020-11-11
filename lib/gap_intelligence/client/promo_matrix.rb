@@ -10,7 +10,7 @@ module GapIntelligence
     # @see https://api.gapintelligence.com/api/doc/v1/promo_matrix/product_versions.html
     def promo_matrix_product_versions(params = {}, options = {}, &block)
       default_option(options, :record_class, PromoMatrixProductVersion)
-      perform_request(:get, 'promo_matrix/product_versions', options.merge(params: params), &block)
+      perform_request(:post, 'promo_matrix/product_versions', options.merge(params: params), &block)
     end
 
     # Requests and returns a list of product placements
