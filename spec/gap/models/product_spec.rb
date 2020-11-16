@@ -14,6 +14,10 @@ describe GapIntelligence::Product do
       expect(product).to respond_to(:part_number)
     end
 
+    it 'has product_version_id' do
+      expect(product).to respond_to(:product_version_id)
+    end
+
     it 'has brand_name' do
       expect(product).to respond_to(:brand_name)
     end
