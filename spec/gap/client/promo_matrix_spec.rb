@@ -6,13 +6,13 @@ describe GapIntelligence::PromoMatrix do
 
   describe '#promo_matrix_product_versions' do
     let(:params){ { category_version_id: 1, merchant_id: 1, start_at: '2020-01-01', end_at: '2020-02-01' } }
-    before { stub_api_request(:get, response: { data: build_list(:promo_matrix_product_version, 3) }) }
+    before { stub_api_request(:post, url: '/promo_matrix/product_versions', response: { data: build_list(:promo_matrix_product_version, 3) }) }
     subject(:record_set) { client.promo_matrix_product_versions(params) }
 
     it 'requests the endpoint' do
       client.promo_matrix_product_versions(params)
 
-      expect(api_get('/promo_matrix/product_versions', query: params)).to have_been_made
+      expect(api_post('/promo_matrix/product_versions').with(body: { category_version_id: 1.to_s, merchant_id: 1.to_s, start_at: '2020-01-01', end_at: '2020-02-01' })).to have_been_made
     end
 
     it 'returns record set' do
@@ -30,13 +30,13 @@ describe GapIntelligence::PromoMatrix do
 
   describe '#promo_matrix_product_placements' do
     let(:params){ { product_version_id: 1, start_at: '2020-01-01', end_at: '2020-02-01' } }
-    before { stub_api_request(:get, response: { data: build_list(:promo_matrix_product_version, 3) }) }
+    before { stub_api_request(:post, url: '/promo_matrix/product_placements', response: { data: build_list(:promo_matrix_product_version, 3) }) }
     subject(:record_set) { client.promo_matrix_product_placements(params) }
 
     it 'requests the endpoint' do
       client.promo_matrix_product_placements(params)
 
-      expect(api_get('/promo_matrix/product_placements', query: params)).to have_been_made
+      expect(api_post('/promo_matrix/product_placements').with(body: { product_version_id: 1.to_s, start_at: '2020-01-01', end_at: '2020-02-01' })).to have_been_made
     end
 
     it 'returns record set' do
