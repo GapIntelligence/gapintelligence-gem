@@ -1,6 +1,6 @@
 module GapIntelligence
   class PromoMatrixDownload < Record
-    attributes :custom_name
+    attributes :custom_file_name
     attributes :owner_id
     attributes :category_version_id
     attributes :merchant_id
