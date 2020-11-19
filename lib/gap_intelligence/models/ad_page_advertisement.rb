@@ -1,13 +1,17 @@
 module GapIntelligence
-  class Advertisement < Record
+  class AdPageAdvertisement < Record
     attribute :ad_date, class: Date
     attribute :end_date, class: Date
+    attribute :category
+    attribute :merchant
+    attribute :brand
+    attribute :product_status_when_advertised
+    attribute :product_part_number
+    attribute :merchant_sku
+    attribute :shelf_price_when_advertised
+    attribute :advertised_price
     attribute :advertisement_type
     attribute :promotion_type
-    attribute :ad_location
-    attribute :print_verified
-    attribute :online_verified
-    attribute :advertised_price
     attribute :bundle_type
     attribute :instant_savings
     attribute :mail_in_rebate
@@ -19,17 +23,14 @@ module GapIntelligence
     attribute :merchant_rewards
     attribute :recycling
     attribute :miscellaneous
-    attribute :page_number
-    attribute :merchant_sku
-    attribute :ad_name
-    attribute :details
-    attribute :gap_url
-    attribute :region
     attribute :total_value
-    attribute :category_name
-    attribute :brand
-    attribute :part_number
-    attribute :merchant
-    attribute :deleted
+    attribute :details
+    attribute :ad_location
+    attribute :ad_name
+    attribute :image_number
+    attribute :region
+    attribute :print_verified
+    attribute :online_verified
+    attribute :public_id
   end
 end
