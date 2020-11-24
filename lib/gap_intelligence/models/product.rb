@@ -5,6 +5,7 @@ module GapIntelligence
     attribute :brand_name
     attribute :category_name
     attribute :product_status
+    attribute :product_version_id
     attribute :manufacturer_suggested_retail_price
     attribute :estimated_retail_price
     attribute :net_estimated_price
