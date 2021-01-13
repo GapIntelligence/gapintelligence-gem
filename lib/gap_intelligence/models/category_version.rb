@@ -11,5 +11,13 @@ module GapIntelligence
     attribute :publish_product_location
     attribute :country_code
     attribute :report_types
+
+    def report_names
+      @report_names ||= begin
+        raw['report_names'].map do |report_name_attributes|
+          GapIntelligence::ReportName.new(report_name_attributes)
+        end
+      end
+    end
   end
 end

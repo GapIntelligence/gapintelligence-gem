@@ -41,5 +41,22 @@ describe GapIntelligence::CategoryVersion do
     it 'has report types' do
       expect(category_version).to respond_to(:report_types)
     end
+
+    context '#report_names' do
+      # context 'without report_names attribute' do
+      #   it 'return empty array' do
+      #     expect(category_version.report_names).to be_empty
+      #   end
+      # end
+      # let!(:report_names) do
+      #   category_version.raw['report_names'].map do |report_name_attributes|
+      #     GapIntelligence::ReportName.new(report_name_attributes).raw
+      #   end
+      # end
+
+      # it 'has array of ReportName instances' do
+      #   expect(category_version.report_names.map(&:raw)).to eq(report_names)
+      # end
+    end
   end
 end
