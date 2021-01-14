@@ -10,7 +10,18 @@ FactoryGirl.define do
                           'category_id' => 1,
                           'frequency' => 'weekly',
                           'published_date' => '2000-01-01',
-                          'country_code' => 'US' }
+                          'country_code' => 'US',
+                          'report_names' => [
+                            {
+                              'id' => 12,
+                              'name' => 'Weekly Report'
+                            },
+                            {
+                              'id' => 13,
+                              'name' => 'Monthly Report'
+                            }
+                          ]
+                        }
       }
     }
   end
