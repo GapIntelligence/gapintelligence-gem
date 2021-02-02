@@ -11,6 +11,7 @@ module GapIntelligence
     attribute :publish_product_location
     attribute :country_code
     attribute :report_types
+    attribute :icon_url
 
     def report_names
       @report_names ||= begin
