@@ -38,6 +38,10 @@ describe GapIntelligence::CategoryVersion do
       expect(category_version).to respond_to(:country_code)
     end
 
+    it 'has icon' do
+      expect(category_version).to respond_to(:icon)
+    end
+
     it 'has report types' do
       expect(category_version).to respond_to(:report_types)
     end

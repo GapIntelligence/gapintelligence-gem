@@ -10,6 +10,7 @@ module GapIntelligence
     attribute :publish_tag_only
     attribute :publish_product_location
     attribute :country_code
+    attribute :icon
     attribute :report_types
 
     def report_names
