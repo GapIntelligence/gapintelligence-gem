@@ -11,6 +11,8 @@ module GapIntelligence
     attribute :publish_product_location
     attribute :country_code
     attribute :icon
+    attribute :specification_headers_count
+    attribute :product_versions_count
     attribute :report_types
 
     def report_names

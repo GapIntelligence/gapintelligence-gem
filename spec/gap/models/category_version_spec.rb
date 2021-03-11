@@ -42,6 +42,14 @@ describe GapIntelligence::CategoryVersion do
       expect(category_version).to respond_to(:icon)
     end
 
+    it 'has specification headers count' do
+      expect(category_version).to respond_to(:specification_headers_count)
+    end
+
+    it 'has product versions count' do
+      expect(category_version).to respond_to(:product_versions_count)
+    end
+
     it 'has report types' do
       expect(category_version).to respond_to(:report_types)
     end
