@@ -56,7 +56,7 @@ module GapIntelligence
     # @yield [req] The Faraday request
     # @return [RecordSet<Header>] the requested headers
     # @see https://api.gapintelligence.com/api/doc/v1/headers/average_contract_pricings.html
-    def average_contract_pricing_headers(params = {}, options = {}, &block)
+    def average_contract_pricings_headers(params = {}, options = {}, &block)
       default_option(options, :record_class, Header)
       perform_request(:get, 'headers/average_contract_pricings', options.merge(params: params), &block)
     end
@@ -68,7 +68,7 @@ module GapIntelligence
     # @yield [req] The Faraday request
     # @return [RecordSet<Header>] the requested headers
     # @see https://api.gapintelligence.com/api/doc/v1/headers/dealer_costs.html
-    def dealer_cost_headers(params = {}, options = {}, &block)
+    def dealer_costs_headers(params = {}, options = {}, &block)
       default_option(options, :record_class, Header)
       perform_request(:get, 'headers/dealer_costs', options.merge(params: params), &block)
     end

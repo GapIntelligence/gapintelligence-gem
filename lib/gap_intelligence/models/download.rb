@@ -9,7 +9,7 @@ module GapIntelligence
     attributes :brands, :channels, :merchants, class: Array
     attributes :pricing_date
 
-    attributes :advertisements_headers, :pricings_headers, :promotions_headers, :average_contract_pricing_headers, :dealer_cost_headers, class: Array
+    attributes :advertisements_headers, :pricings_headers, :promotions_headers, :average_contract_pricings_headers, :dealer_costs_headers, class: Array
     attributes :included_core_spec_headers, :included_spec_headers, class: Array
     attributes :standalone_core_spec_headers, :standalone_spec_headers, class: Array
 
