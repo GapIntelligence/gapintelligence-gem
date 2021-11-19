@@ -48,5 +48,29 @@ module GapIntelligence
       default_option(options, :record_class, Header)
       perform_request(:get, 'headers/specifications', options.merge(params: params), &block)
     end
+
+    # Requests a list of average contract pricings headers
+    #
+    # @param params [Hash] parameters of the http request
+    # @param options [Hash] the options to make the request with
+    # @yield [req] The Faraday request
+    # @return [RecordSet<Header>] the requested headers
+    # @see https://api.gapintelligence.com/api/doc/v1/headers/average_contract_pricings.html
+    def average_contract_pricings_headers(params = {}, options = {}, &block)
+      default_option(options, :record_class, Header)
+      perform_request(:get, 'headers/average_contract_pricings', options.merge(params: params), &block)
+    end
+
+    # Requests a list of dealer costs headers headers
+    #
+    # @param params [Hash] parameters of the http request
+    # @param options [Hash] the options to make the request with
+    # @yield [req] The Faraday request
+    # @return [RecordSet<Header>] the requested headers
+    # @see https://api.gapintelligence.com/api/doc/v1/headers/dealer_costs.html
+    def dealer_costs_headers(params = {}, options = {}, &block)
+      default_option(options, :record_class, Header)
+      perform_request(:get, 'headers/dealer_costs', options.merge(params: params), &block)
+    end
   end
 end
