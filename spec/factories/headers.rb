@@ -39,6 +39,32 @@ FactoryGirl.define do
       }
     end
 
+    trait :average_contract_pricings do
+      initialize_with {
+        {
+          'id' => '',
+          'type' => 'average_contract_pricing_headers',
+          'attributes' => { 'name' => 'A Header',
+                            'unit' => nil,
+                            'core_header' => nil,
+                            'position' => nil }
+        }
+      }
+    end
+
+    trait :dealer_costs do
+      initialize_with {
+        {
+          'id' => '',
+          'type' => 'dealer_cost_headers',
+          'attributes' => { 'name' => 'A Header',
+                            'unit' => nil,
+                            'core_header' => nil,
+                            'position' => nil }
+        }
+      }
+    end
+
     trait :specifications do
       initialize_with {
         {
