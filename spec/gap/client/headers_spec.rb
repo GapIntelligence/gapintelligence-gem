@@ -70,6 +70,50 @@ describe GapIntelligence::Headers do
     end
   end
 
+  describe '#average_contract_pricing_headers' do
+    before { stub_api_request(:get, response: { data: build_list(:header, 3, :average_contract_pricings) }) }
+    subject(:record_set) { client.average_contract_pricings_headers }
+
+    it 'requests the endpoint' do
+      client.average_contract_pricings_headers
+      expect(api_get('/headers/average_contract_pricings')).to have_been_made
+    end
+
+    it 'returns record set' do
+      expect(record_set).to be_instance_of(GapIntelligence::RecordSet)
+    end
+
+    it 'returns set of specified type' do
+      expect(record_set).to all be_an(GapIntelligence::Header)
+    end
+
+    it 'contains proper count of elements' do
+      expect(record_set.count).to eq(3)
+    end
+  end
+
+  describe '#dealer_cost_headers' do
+    before { stub_api_request(:get, response: { data: build_list(:header, 3, :dealer_costs) }) }
+    subject(:record_set) { client.dealer_costs_headers }
+
+    it 'requests the endpoint' do
+      client.dealer_costs_headers
+      expect(api_get('/headers/dealer_costs')).to have_been_made
+    end
+
+    it 'returns record set' do
+      expect(record_set).to be_instance_of(GapIntelligence::RecordSet)
+    end
+
+    it 'returns set of specified type' do
+      expect(record_set).to all be_an(GapIntelligence::Header)
+    end
+
+    it 'contains proper count of elements' do
+      expect(record_set.count).to eq(3)
+    end
+  end
+
   describe '#specification_headers' do
     before { stub_api_request(:get, response: { data: build_list(:header, 3, :specifications) }) }
     subject(:record_set) { client.specification_headers }
