@@ -12,6 +12,7 @@ FactoryGirl.define do
     report_type_names ['Pricings']
     merchants ['Walgreens']
     brands ['HP']
+    printer_brands ['Brother']
     channels []
     advertisements_headers ['Category', 'Part Number', 'Product']
     pricings_headers ['Category', 'Part Number', 'Product']
