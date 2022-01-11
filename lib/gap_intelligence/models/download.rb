@@ -6,7 +6,7 @@ module GapIntelligence
     attributes :categories, :countries, :category_versions, class: Array
     attributes :report_types, :report_type_names, class: Array
 
-    attributes :brands, :channels, :merchants, class: Array
+    attributes :brands, :printer_brands, :channels, :merchants, class: Array
     attributes :pricing_date
 
     attributes :advertisements_headers, :pricings_headers, :promotions_headers, :average_contract_pricings_headers, :dealer_costs_headers, class: Array
