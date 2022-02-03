@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :merchant_pricing_trend_download, class: Hash do
     categories [24]
+    category_versions [18]
     countries ['US']
     start_at '2015-11-24'
     end_at '2016-02-23'

@@ -1,5 +1,6 @@
 module GapIntelligence
   class MerchantPricingTrendDownload < Record
+    attribute :category_versions, class: Array
     attributes :categories, :countries, class: Array
     attributes :start_at, :end_at, class: Date
     attributes :merchants, :brands, class: Array
