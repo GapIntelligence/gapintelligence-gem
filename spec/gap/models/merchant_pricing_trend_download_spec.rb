@@ -6,6 +6,10 @@ describe GapIntelligence::MerchantPricingTrendDownload do
   describe 'attributes' do
     subject(:download) { described_class.new build(:merchant_pricing_trend_download) }
 
+    it 'has category versions as Array' do
+      expect(download.category_versions).to be_an_instance_of(Array)
+    end
+
     it 'has categories as Array' do
       expect(download.categories).to be_an_instance_of(Array)
     end
