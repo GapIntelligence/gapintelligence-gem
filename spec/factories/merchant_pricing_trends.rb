@@ -56,4 +56,10 @@ FactoryGirl.define do
       }
     }
   end
+
+  factory :merchant_pricing_trends_product_versions, class: Hash, parent: :merchant_product_version do
+  end
+
+  factory :merchant_pricing_trends_pricings, class: Hash, parent: :calculated_pricing do
+  end
 end
