@@ -1,6 +1,6 @@
 module GapIntelligence
   class CalculatedPricing < Record
-    attributes :product_version_id, :merchant_id
+    attributes :product_version_id, :merchant_id, :merchant_product_version_id
     attribute :date, class: Date
     attributes :shelf_price, :net_price
     attributes :promo_value, :promo_percentage
