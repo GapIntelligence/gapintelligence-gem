@@ -36,7 +36,7 @@ module GapIntelligence
     # @see https://api.gapintelligence.com/api/doc/v1/merchant_pricing_trends/pricings.html
     def merchant_pricing_trends_pricings(params = {}, options = {}, &block)
       default_option(options, :record_class, MerchantPricingTrendPricing)
-      perform_request(:get, 'merchant_pricing_trends/pricings', options.merge(params: params), &block)
+      perform_request(:post, 'merchant_pricing_trends/pricings', options.merge(body: params), &block)
     end
   end
 end
