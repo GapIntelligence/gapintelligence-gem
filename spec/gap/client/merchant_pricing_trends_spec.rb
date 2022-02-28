@@ -35,13 +35,13 @@ describe GapIntelligence::MerchantPricingTrends do
   end
 
   describe '#merchant_pricing_trends_pricings' do
-    let(:params){ { product_version_id: 1, merchant_id: 1, start_at: '2020-01-01', end_at: '2020-02-01' } }
+    let(:params){ { merchant_product_versions: [1], start_at: '2020-01-01', end_at: '2020-02-01' } }
     before { stub_api_request(:post, response: { data: build(:merchant_pricing_trends_pricings) }) }
     subject(:record) { client.merchant_pricing_trends_pricings(params) }
 
     it 'requests the endpoint' do
       client.merchant_pricing_trends_pricings(params)
-      expect(api_post('/merchant_pricing_trends/pricings').with(body: { params })).to have_been_made
+      expect(api_post('/merchant_pricing_trends/pricings').with(body: params)).to have_been_made
     end
 
     it 'returns MerchantPricingTrendPricing instance' do
