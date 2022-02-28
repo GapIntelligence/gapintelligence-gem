@@ -20,13 +20,13 @@ describe GapIntelligence::MerchantPricingTrends do
   end
 
   describe '#merchant_pricing_trends_product_versions' do
-    let(:params) { { category_versions: 19, start_at: '2022-01-01', end_at: '2022-02-02' } }
+    let(:params) { { category_versions: '19', start_at: '2022-01-01', end_at: '2022-02-02' } }
     before { stub_api_request(:post, url: '/merchant_pricing_trends/product_versions', response: { data: build(:merchant_pricing_trends_product_versions) }) }
     subject(:record) { client.merchant_pricing_trends_product_versions(params) }
 
     it 'requests the endpoint' do
       client.merchant_pricing_trends_product_versions(params)
-      expect(api_post('/merchant_pricing_trends/product_versions').with(body: { category_versions: 19.to_s, start_at: '2022-01-01', end_at: '2022-02-02' })).to have_been_made
+      expect(api_post('/merchant_pricing_trends/product_versions').with(body: params)).to have_been_made
     end
 
     it 'returns MerchantPricingTrendProductVersion instance' do
@@ -35,7 +35,7 @@ describe GapIntelligence::MerchantPricingTrends do
   end
 
   describe '#merchant_pricing_trends_pricings' do
-    let(:params){ { merchant_product_versions: [1], start_at: '2020-01-01', end_at: '2020-02-01' } }
+    let(:params){ { merchant_product_versions: ['1'], start_at: '2020-01-01', end_at: '2020-02-01' } }
     before { stub_api_request(:post, url: '/merchant_pricing_trends/pricings', response: { data: build(:merchant_pricing_trends_pricings) }) }
     subject(:record) { client.merchant_pricing_trends_pricings(params) }
 
