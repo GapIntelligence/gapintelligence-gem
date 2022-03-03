@@ -1,5 +1,5 @@
 module GapIntelligence
   class Brand < Record
-    attribute :name
+    attributes :name
   end
 end
