@@ -11,6 +11,7 @@ require 'gap_intelligence/client/countries'
 require 'gap_intelligence/client/downloads'
 require 'gap_intelligence/client/files'
 require 'gap_intelligence/client/headers'
+require 'gap_intelligence/client/pricing_images'
 require 'gap_intelligence/client/merchants'
 require 'gap_intelligence/client/merchant_pricing_trends'
 require 'gap_intelligence/client/merchant_pricing_trend_downloads'
@@ -43,6 +44,7 @@ module GapIntelligence
     include Promotions
     include Headers
     include Files
+    include PricingImages
 
     attr_reader :connection
 
