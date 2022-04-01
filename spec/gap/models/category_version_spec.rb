@@ -22,6 +22,10 @@ describe GapIntelligence::CategoryVersion do
       expect(category_version).to respond_to(:display_cents)
     end
 
+    it 'has currency' do
+      expect(category_version).to respond_to(:currency)
+    end
+
     it 'has frequency' do
       expect(category_version).to respond_to(:frequency)
     end
