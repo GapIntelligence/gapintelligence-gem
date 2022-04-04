@@ -98,8 +98,8 @@ module GapIntelligence
         OAuth2::Client.new(client_id, client_secret, { site: api_base_uri, connection_opts: connection_opts }, &connection_build)
                       .client_credentials
                       .get_token(client_params, 'auth_scheme' => 'request_body')
-      rescue OAuth2::Error
-        raise AuthenticationError
+      rescue OAuth2::Error => e
+        raise AuthenticationError, e.message
       end
     end
 
