@@ -46,5 +46,17 @@ describe GapIntelligence::CalculatedPricing do
     it 'has on promo' do
       expect(record.on_promo).to eq(false)
     end
+
+    it 'has stock status' do
+      expect(record.in_stock).to eq(true)
+    end
+
+    it 'has previous shelf price' do
+      expect(record.previous_shelf_price).to eq(9.0)
+    end
+
+    it 'has previous net price' do
+      expect(record.previous_net_price).to eq(6.5)
+    end
   end
 end
