@@ -8,6 +8,7 @@ require 'gap_intelligence/client/brands'
 require 'gap_intelligence/client/categories'
 require 'gap_intelligence/client/category_versions'
 require 'gap_intelligence/client/countries'
+require 'gap_intelligence/client/delta'
 require 'gap_intelligence/client/downloads'
 require 'gap_intelligence/client/files'
 require 'gap_intelligence/client/headers'
@@ -31,6 +32,7 @@ module GapIntelligence
     include Countries
     include Categories
     include CategoryVersions
+    include Delta
     include Downloads
     include Merchants
     include MerchantPricingTrends
