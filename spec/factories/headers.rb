@@ -6,7 +6,6 @@ FactoryGirl.define do
           'id' => '',
           'type' => 'advertisement_headers',
           'attributes' => { 'name' => 'A Header',
-                            'label' => 'A Header',
                             'unit' => nil,
                             'core_header' => nil,
                             'position' => nil }
@@ -20,7 +19,6 @@ FactoryGirl.define do
           'id' => '',
           'type' => 'promotion_headers',
           'attributes' => { 'name' => 'A Header',
-                            'label' => 'A Header',
                             'unit' => nil,
                             'core_header' => nil,
                             'position' => nil }
@@ -34,7 +32,6 @@ FactoryGirl.define do
           'id' => '',
           'type' => 'pricing_headers',
           'attributes' => { 'name' => 'A Header',
-                            'label' => 'A Header',
                             'unit' => nil,
                             'core_header' => nil,
                             'position' => nil }
@@ -48,7 +45,6 @@ FactoryGirl.define do
           'id' => '',
           'type' => 'average_contract_pricing_headers',
           'attributes' => { 'name' => 'A Header',
-                            'label' => 'A Header',
                             'unit' => nil,
                             'core_header' => nil,
                             'position' => nil }
@@ -62,7 +58,6 @@ FactoryGirl.define do
           'id' => '',
           'type' => 'dealer_cost_headers',
           'attributes' => { 'name' => 'A Header',
-                            'label' => 'A Header',
                             'unit' => nil,
                             'core_header' => nil,
                             'position' => nil }
@@ -76,7 +71,6 @@ FactoryGirl.define do
           'id' => '',
           'type' => 'specification_headers',
           'attributes' => { 'name' => 'A Header',
-                            'label' => 'A Header',
                             'unit' => 'lbs',
                             'core_header' => false,
                             'position' => 0 }
