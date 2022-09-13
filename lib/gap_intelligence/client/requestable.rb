@@ -32,13 +32,13 @@ module GapIntelligence
         objects = record_class.nil? ? data : data.collect{ |object| record_class.new(object) }
         RecordSet.new(objects, meta: hash.fetch('meta', {}))
       when Hash
-        instantiate_record(record_class, data)
+        instantiate_record(record_class, data, meta: hash.fetch('meta', {}))
       end
     end
 
     private
-    def instantiate_record(record_class, data)
-      record_class.nil? ? data : record_class.new(data)
+    def instantiate_record(record_class, data, options = {})
+      record_class.nil? ? data : record_class.new(data, options)
     end
 
     def default_option(opts, key, value)
