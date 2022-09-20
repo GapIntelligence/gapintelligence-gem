@@ -9,6 +9,9 @@ FactoryGirl.define do
     promo_percentage 30
     on_ad true
     on_promo false
+    in_stock true
+    previous_shelf_price 9.0
+    previous_net_price 6.5
 
     initialize_with do
       { 'id' => 1, 'type' => 'pricings' }.merge(attributes.stringify_keys)

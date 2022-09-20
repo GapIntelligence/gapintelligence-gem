@@ -54,6 +54,18 @@ describe GapIntelligence::Download do
       expect(download).to respond_to(:pricing_date)
     end
 
+    it 'has advertisements_display_currency' do
+      expect(download).to respond_to(:advertisements_display_currency)
+    end
+
+    it 'has pricings_display_currency' do
+      expect(download).to respond_to(:pricings_display_currency)
+    end
+
+    it 'has promotions_display_currency' do
+      expect(download).to respond_to(:promotions_display_currency)
+    end
+
     it 'has advertisements_headers as Array' do
       expect(download.advertisements_headers).to be_an_instance_of(Array)
     end

@@ -4,6 +4,7 @@ module GapIntelligence
     attribute :full_name
     attribute :display_name
     attribute :display_cents
+    attribute :currency
     attribute :category_id
     attribute :frequency
     attribute :published_date, class: Date

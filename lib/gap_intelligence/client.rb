@@ -8,13 +8,13 @@ require 'gap_intelligence/client/brands'
 require 'gap_intelligence/client/categories'
 require 'gap_intelligence/client/category_versions'
 require 'gap_intelligence/client/countries'
+require 'gap_intelligence/client/delta'
 require 'gap_intelligence/client/downloads'
 require 'gap_intelligence/client/files'
 require 'gap_intelligence/client/headers'
 require 'gap_intelligence/client/pricing_images'
 require 'gap_intelligence/client/merchants'
 require 'gap_intelligence/client/merchant_pricing_trends'
-require 'gap_intelligence/client/merchant_pricing_trend_downloads'
 require 'gap_intelligence/client/notes_and_changes'
 require 'gap_intelligence/client/products'
 require 'gap_intelligence/client/product_presence'
@@ -33,10 +33,10 @@ module GapIntelligence
     include Countries
     include Categories
     include CategoryVersions
+    include Delta
     include Downloads
     include Merchants
     include MerchantPricingTrends
-    include MerchantPricingTrendDownloads
     include NotesAndChanges
     include Products
     include ProductPresence
@@ -100,8 +100,8 @@ module GapIntelligence
         OAuth2::Client.new(client_id, client_secret, { site: api_base_uri, connection_opts: connection_opts }, &connection_build)
                       .client_credentials
                       .get_token(client_params, 'auth_scheme' => 'request_body')
-      rescue OAuth2::Error
-        raise AuthenticationError
+      rescue OAuth2::Error => e
+        raise AuthenticationError, e.message
       end
     end
 

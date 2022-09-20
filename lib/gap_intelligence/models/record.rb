@@ -24,9 +24,14 @@ module GapIntelligence
 
     attr_reader :id
 
-    def initialize(attrs = {})
+    def initialize(attrs = {}, options = {})
       @id = attrs['id']
       @attributes = attrs.fetch('attributes', attrs)
+      instance_variable_set(:@meta, options[:meta]) if options[:meta]
+    end
+
+    def meta
+      instance_variable_get(:@meta)
     end
 
     def raw
