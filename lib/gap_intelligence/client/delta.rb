@@ -13,6 +13,18 @@ module GapIntelligence
       perform_request(:post, 'delta/aggregate', options.merge(body: params), &block)
     end
 
+    # Requests delta product versions data
+    #
+    # @param params [Hash] parameters of the http request
+    # @param options [Hash] the options to make the request with
+    # @yield [req] The Faraday request
+    # @return [DeltaProductVersion] the list of requested data
+    # @see https://api.gapintelligence.com/api/doc/v1/delta/product_versions.html
+    def delta_product_versions(params = {}, options = {}, &block)
+      default_option(options, :record_class, DeltaProductVersion)
+      perform_request(:post, 'delta/product_versions', options.merge(body: params), &block)
+    end
+
     # Requests delta pricings data
     #
     # @param params [Hash] parameters of the http request
