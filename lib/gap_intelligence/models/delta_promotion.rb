@@ -6,7 +6,7 @@ module GapIntelligence
     attributes :category_name, :country_code, :category_version_name
     attributes :merchant_name, :merchant_channel
     attributes :brand_name, :part_number, :product_version_name
-    attributes :product_status
+    attributes :product_status, :specifications
 
     attributes :start_date, :end_date
     attributes :promotion_type, :promotion_event
