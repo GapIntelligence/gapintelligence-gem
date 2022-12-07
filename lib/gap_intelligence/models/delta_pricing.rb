@@ -8,10 +8,10 @@ module GapIntelligence
     attributes :brand_name, :part_number, :product_version_name
     attributes :product_status, :product_location, :specifications
 
-    attributes :date
+    attributes :date, class: Date
     attributes :shelf_price, :net_price
     attributes :promo_value, :promo_percentage
     attributes :on_ad, :on_promo, :in_stock
-    attributes :merchant_debut_date, :age_of_placements_wks
+    attributes :product_location, :merchant_debut_date, :age_of_placements_wks
   end
 end

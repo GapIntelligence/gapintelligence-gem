@@ -8,7 +8,7 @@ module GapIntelligence
     attributes :brand_name, :part_number, :product_version_name
     attributes :product_status, :specifications
 
-    attributes :start_date, :end_date
+    attributes :start_date, :end_date, class: Date
     attributes :promotion_type, :promotion_event
     attributes :shelf_price, :value, :promo_percentage
     attributes :bundle_type, :on_ad, :notes

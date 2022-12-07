@@ -9,7 +9,7 @@ module GapIntelligence
     attributes :product_status, :specifications
 
     attributes :ad_name, :details
-    attributes :ad_date, :end_date
+    attributes :ad_date, :end_date, class: Date
     attributes :advertisement_type, :promotion_type
     attributes :ad_location
     attributes :print_verified, :online_verified
