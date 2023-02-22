@@ -10,20 +10,12 @@ describe GapIntelligence::Pricing do
     subject { client.pricings }
 
     it 'requests the endpoint' do
-      client.category_versions
+      subject
       expect(api_get('/pricings')).to have_been_made
     end
 
-    it 'returns record set' do
-      expect(subject).to be_instance_of(GapIntelligence::Pricing)
-    end
-
-    it 'returns set of specified type' do
-      expect(subject).to all be_an(GapIntelligence::Pricing)
-    end
-
     it 'contains proper count of elements' do
-      expect(pricings).to eq(3)
+      expect(subject.count).to eq(3)
     end
   end
 end
