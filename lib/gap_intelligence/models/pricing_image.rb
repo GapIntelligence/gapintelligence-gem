@@ -1,6 +1,5 @@
 module GapIntelligence
   class PricingImage < Record
-    attribute :id
     attribute :in_store_image_id
     attribute :position
     attribute :public_id
