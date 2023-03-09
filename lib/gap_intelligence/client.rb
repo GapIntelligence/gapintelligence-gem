@@ -12,6 +12,7 @@ require 'gap_intelligence/client/delta'
 require 'gap_intelligence/client/downloads'
 require 'gap_intelligence/client/files'
 require 'gap_intelligence/client/headers'
+require 'gap_intelligence/client/in_store_images'
 require 'gap_intelligence/client/merchants'
 require 'gap_intelligence/client/merchant_pricing_trends'
 require 'gap_intelligence/client/notes_and_changes'
@@ -35,6 +36,7 @@ module GapIntelligence
     include CategoryVersions
     include Delta
     include Downloads
+    include InStoreImages
     include Merchants
     include MerchantPricingTrends
     include NotesAndChanges
