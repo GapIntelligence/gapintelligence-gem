@@ -6,7 +6,7 @@ module GapIntelligence
     # @param id [String] pricing image public id
     # @param options [Hash] the options to make the request with
     # @yield [req] The Faraday request
-    # @return [PricingImage] the in store image with requested pricing image
+    # @return [PricingImage] with in store image attribute
     # @see https://api.gapintelligence.com/api/doc/v1/pricing_images/show.html
     def pricing_image(id, options = {}, &block)
       default_option(options, :record_class, PricingImage)
