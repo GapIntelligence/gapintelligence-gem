@@ -3,10 +3,11 @@ FactoryGirl.define do
     transient do
       sequence(:id)
       sequence(:position)
+      sequence(:public_id) { |n| "public_id_#{id}" }
     end
 
     in_store_image_id 1
-    public_id '6f9b9af36f9b9af3'
+
     image_url 'https://gapi-staging.s3.amazonaws.com/uploads/pricing_image/image/83688/Manny_Festa.jpg?AWSAccessKeyId=AKIAIHC7SBLIBPKMA6EA&Expires=1586548075&Signature=AlarFCYMTAMGCvlnQeyyn7%2F%2FK7k%3D'
     image_thumb_url 'https://gapi-staging.s3.amazonaws.com/uploads/pricing_image/image/83688/Manny_Festa.jpg?AWSAccessKeyId=AKIAIHC7SBLIBPKMA6EA&Expires=1586548075&Signature=AlarFCYMTAMGCvlnQeyyn7%2F%2FK7k%3D_thumb'
     image_large_url 'https://gapi-staging.s3.amazonaws.com/uploads/pricing_image/image/83688/Large_Manny_Festa.jpg?AWSAccessKeyId=AKIAIHC7SBLIBPKMA6EA&Expires=1586548075&Signature=AlarFCYMTAMGCvlnQeyyn7%2F%2FK7k%3D'
