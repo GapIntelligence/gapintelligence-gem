@@ -17,6 +17,7 @@ require 'gap_intelligence/client/merchants'
 require 'gap_intelligence/client/merchant_pricing_trends'
 require 'gap_intelligence/client/notes_and_changes'
 require 'gap_intelligence/client/pricings'
+require 'gap_intelligence/client/pricing_images'
 require 'gap_intelligence/client/products'
 require 'gap_intelligence/client/product_presence'
 require 'gap_intelligence/client/promo_matrix'
@@ -41,6 +42,7 @@ module GapIntelligence
     include MerchantPricingTrends
     include NotesAndChanges
     include Pricings
+    include PricingImages
     include Products
     include ProductPresence
     include PromoMatrix

@@ -2,7 +2,7 @@ module GapIntelligence
   class InStoreImage < Record
     attribute :category_version_id
     attribute :merchant_id
-    attributes :start_date, :end_date
+    attributes :start_date, :end_date, class: Date
     attribute :category_version_name
     attribute :merchant_name
 
