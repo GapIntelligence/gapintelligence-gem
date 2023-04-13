@@ -12,5 +12,18 @@ module GapIntelligence
       default_option(options, :record_class, InStoreImage)
       perform_request(:get, 'in_store_images', options.merge(params: params), &block)
     end
+
+    # Requests and returns a in store image
+    #
+    # @param id [String,Integer] in store image id
+    # @param options [Hash] options for the http request
+    # @yield [request] The Faraday request
+    # @return [AdImage] the requested in store image
+    # @return [RequestError] error messages
+    # @see https://api.gapintelligence.com/api/doc/v1/in_store_images/show.html
+    def in_store_image(id, options = {}, &block)
+      default_option(options, :record_class, AdImage)
+      perform_request(:get, build_resource_path('in_store_images', id), options, &block)
+    end
   end
 end
