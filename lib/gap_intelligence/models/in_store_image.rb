@@ -4,7 +4,8 @@ module GapIntelligence
     attribute :merchant_id
     attribute :category_version_name
     attribute :merchant_name
-    attributes :start_date, :end_date, :created_at, :updated_at, class: Date
+    attributes :start_date, :end_date, class: Date
+    attributes :created_at, :updated_at, class: Time
 
     def pricing_images
       @pricing_images ||= begin
