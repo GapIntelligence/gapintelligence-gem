@@ -5,12 +5,12 @@ describe GapIntelligence::AdImages do
   subject(:client) { GapIntelligence::Client.new(client_id: 'CLIENTID', client_secret: 'ASECRET') }
 
   describe '#ad_images' do
-    before { stub_api_request(:get, response: { data: build_list(:ad_image, 3) }) }
+    before { stub_api_request(:post, response: { data: build_list(:ad_image, 3) }) }
     subject(:record_set) { client.ad_images }
 
     it 'requests the endpoint' do
       client.ad_images
-      expect(api_get('/ad_images')).to have_been_made
+      expect(api_post('/ad_images')).to have_been_made
     end
 
     it 'returns record set' do
