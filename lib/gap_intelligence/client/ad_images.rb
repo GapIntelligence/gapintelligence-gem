@@ -24,7 +24,7 @@ module GapIntelligence
     # @see https://api.gapintelligence.com/api/doc/v1/ad_images/index.html
     def ad_images(params = {}, options = {}, &block)
       default_option(options, :record_class, AdImage)
-      perform_request(:post, 'ad_images', options.merge(body: params), &block)
+      perform_request(:post, 'ad_images/fetch', options.merge(body: params), &block)
     end
   end
 end

@@ -10,7 +10,7 @@ describe GapIntelligence::AdImages do
 
     it 'requests the endpoint' do
       client.ad_images
-      expect(api_post('/ad_images')).to have_been_made
+      expect(api_post('/ad_images/fetch')).to have_been_made
     end
 
     it 'returns record set' do
