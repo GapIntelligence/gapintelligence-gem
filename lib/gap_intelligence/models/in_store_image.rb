@@ -2,9 +2,10 @@ module GapIntelligence
   class InStoreImage < Record
     attribute :category_version_id
     attribute :merchant_id
-    attributes :start_date, :end_date, class: Date
     attribute :category_version_name
     attribute :merchant_name
+    attributes :start_date, :end_date, class: Date
+    attributes :created_at, :updated_at, class: Time
 
     def pricing_images
       @pricing_images ||= begin
