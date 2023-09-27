@@ -22,6 +22,7 @@ require 'gap_intelligence/client/products'
 require 'gap_intelligence/client/product_presence'
 require 'gap_intelligence/client/promo_matrix'
 require 'gap_intelligence/client/promotions'
+require 'gap_intelligence/client/specifications'
 
 module GapIntelligence
   class Client
