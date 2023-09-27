@@ -48,6 +48,7 @@ module GapIntelligence
     include ProductPresence
     include PromoMatrix
     include Promotions
+    include Specifications
     include Headers
     include Files
 
