@@ -21,6 +21,7 @@ FactoryGirl.define do
     included_spec_headers ['Smart TV', 'HDR']
     standalone_core_spec_headers ['WiFi', '3D']
     standalone_spec_headers ['Launch Date', 'Width', 'Height']
+    specifications {'Form Factor':['True Wireless']}
     product_info_fields_headers []
     pricing_date 'date_collected'
     pricing_date_type 'raw'
