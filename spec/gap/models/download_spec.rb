@@ -94,6 +94,10 @@ describe GapIntelligence::Download do
       expect(download.standalone_spec_headers).to be_an_instance_of(Array)
     end
 
+    it 'has specifications as a Hash' do
+      expect(download.specifications).to be_an_instance_of(Hash)
+    end
+
     it 'has file_type' do
       expect(download).to respond_to(:file_type)
     end

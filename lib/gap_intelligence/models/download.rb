@@ -13,6 +13,7 @@ module GapIntelligence
     attributes :advertisements_headers, :pricings_headers, :promotions_headers, :average_contract_pricings_headers, :dealer_costs_headers, class: Array
     attributes :included_core_spec_headers, :included_spec_headers, class: Array
     attributes :standalone_core_spec_headers, :standalone_spec_headers, class: Array
+    attributes :specifications, class: Hash
 
     attributes :file_type, :custom_file_name, :status
   end
