@@ -27,6 +27,7 @@ FactoryGirl.define do
     file_type 'csv'
     custom_file_name ''
     status 'done'
+    day_of_the_week 'monday'
 
     initialize_with {
       {
