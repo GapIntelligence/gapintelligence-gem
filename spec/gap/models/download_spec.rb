@@ -14,6 +14,10 @@ describe GapIntelligence::Download do
       expect(download.end_at).to be_an_instance_of(Date)
     end
 
+    it 'has day_of_the_week' do
+      expect(download.day_of_the_week).to be_an_instance_of(String)
+    end
+
     it 'has created_at as Time' do
       expect(download.created_at).to be_an_instance_of(Time)
     end
