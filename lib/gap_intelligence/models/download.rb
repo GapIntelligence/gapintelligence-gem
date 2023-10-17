@@ -14,6 +14,6 @@ module GapIntelligence
     attributes :included_core_spec_headers, :included_spec_headers, class: Array
     attributes :standalone_core_spec_headers, :standalone_spec_headers, class: Array
 
-    attributes :file_type, :custom_file_name, :status
+    attributes :file_type, :custom_file_name, :status, :day_of_the_week
   end
 end
